@@ -1,0 +1,11 @@
+package br.unesc.tcc.backend.apartamento.dto;
+
+import java.util.UUID;
+
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
+
+public record ApartamentoRequest(
+        @NotNull UUID condominioId,
+        @NotBlank String numero) {
+}

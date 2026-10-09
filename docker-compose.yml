@@ -1,0 +1,63 @@
+# Credenciais abaixo são apenas para desenvolvimento local (Sprint 0).
+# Não usar estes valores em produção/deploy.
+services:
+  db:
+    image: timescale/timescaledb:latest-pg16
+    container_name: tcc-db
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: tcc_telemetria
+      POSTGRES_USER: tcc
+      POSTGRES_PASSWORD: tcc
+    ports:
+      # porta do host em 5435 (não 5432) porque outros projetos nesta máquina já
+      # ocupam 5432-5434; a rede interna do Docker (backend -> db:5432) não muda.
+      - "5435:5432"
+    volumes:
+      - db_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U tcc -d tcc_telemetria"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+
+  backend:
+    build:
+      context: ./backend
+      # network: host evita falha de resolução de DNS durante o build em
+      # ambientes onde a rede bridge padrão do Docker não tem saída para a
+      # internet (ex.: sandboxes restritos); inofensivo em máquinas normais.
+      network: host
+    container_name: tcc-backend
+    restart: unless-stopped
+    environment:
+      DB_HOST: db
+      DB_PORT: 5432
+      DB_NAME: tcc_telemetria
+      DB_USER: tcc
+      DB_PASSWORD: tcc
+      # valor de dev fixo (mesmo padrão das credenciais do Postgres acima).
+      JWT_SECRET: dev-secret-tcc-telemetria-troque-em-producao-0123456789
+      # Fluxo ininterrupto por este tempo (min) = alerta de vazamento provável. Para ver o alerta
+      # rápido numa demonstração: APP_ALERTA_FLUXO_CONTINUO_MINUTOS=2 docker compose up -d backend
+      APP_ALERTA_FLUXO_CONTINUO_MINUTOS: ${APP_ALERTA_FLUXO_CONTINUO_MINUTOS:-30}
+    ports:
+      - "8080:8080"
+    depends_on:
+      db:
+        condition: service_healthy
+
+  pgadmin:
+    image: dpage/pgadmin4:latest
+    container_name: tcc-pgadmin
+    restart: unless-stopped
+    environment:
+      PGADMIN_DEFAULT_EMAIL: admin@tcc.com
+      PGADMIN_DEFAULT_PASSWORD: admin
+    ports:
+      - "5050:80"
+    depends_on:
+      - db
+
+volumes:
+  db_data:
