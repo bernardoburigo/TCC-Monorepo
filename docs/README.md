@@ -11,6 +11,9 @@ validação do TCC, e o histórico de avanço do desenvolvimento.
 - `progresso.md` — checklist vivo de progresso por sprint (o que já foi
   concluído e o que falta até a entrega do artigo); atualizar ao fechar
   cada sprint ou pendência relevante.
+- `deploy-servidor.md` — guia autocontido do deploy público (servidor
+  caseiro + Cloudflare Tunnel + Vercel), pensado pra ser seguido por uma
+  sessão de Claude Code rodando no próprio servidor.
 - `TCC_Bernardo_Goulart_Búrigo.pdf` — versão final do artigo (textos em
   vermelho = placeholders a preencher com dados da parte prática).
 

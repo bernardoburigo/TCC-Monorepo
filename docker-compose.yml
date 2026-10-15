@@ -1,5 +1,8 @@
-# Credenciais abaixo são apenas para desenvolvimento local (Sprint 0).
-# Não usar estes valores em produção/deploy.
+# Valores de ${VAR:-padrao} abaixo caem no padrão de desenvolvimento (Sprint 0)
+# se não houver um .env ao lado deste arquivo. Em produção/deploy, crie um .env
+# (nunca commitado — ver .gitignore) com segredos fortes de verdade e
+# BIND_HOST=127.0.0.1 (só o cloudflared local precisa alcançar essas portas);
+# ver docs/deploy-servidor.md.
 services:
   db:
     image: timescale/timescaledb:latest-pg16
@@ -8,11 +11,11 @@ services:
     environment:
       POSTGRES_DB: tcc_telemetria
       POSTGRES_USER: tcc
-      POSTGRES_PASSWORD: tcc
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-tcc}
     ports:
       # porta do host em 5435 (não 5432) porque outros projetos nesta máquina já
       # ocupam 5432-5434; a rede interna do Docker (backend -> db:5432) não muda.
-      - "5435:5432"
+      - "${BIND_HOST:-0.0.0.0}:5435:5432"
     volumes:
       - db_data:/var/lib/postgresql/data
     healthcheck:
@@ -35,14 +38,13 @@ services:
       DB_PORT: 5432
       DB_NAME: tcc_telemetria
       DB_USER: tcc
-      DB_PASSWORD: tcc
-      # valor de dev fixo (mesmo padrão das credenciais do Postgres acima).
-      JWT_SECRET: dev-secret-tcc-telemetria-troque-em-producao-0123456789
+      DB_PASSWORD: ${DB_PASSWORD:-tcc}
+      JWT_SECRET: ${JWT_SECRET:-dev-secret-tcc-telemetria-troque-em-producao-0123456789}
       # Fluxo ininterrupto por este tempo (min) = alerta de vazamento provável. Para ver o alerta
       # rápido numa demonstração: APP_ALERTA_FLUXO_CONTINUO_MINUTOS=2 docker compose up -d backend
       APP_ALERTA_FLUXO_CONTINUO_MINUTOS: ${APP_ALERTA_FLUXO_CONTINUO_MINUTOS:-30}
     ports:
-      - "8080:8080"
+      - "${BIND_HOST:-0.0.0.0}:8080:8080"
     depends_on:
       db:
         condition: service_healthy
@@ -53,9 +55,9 @@ services:
     restart: unless-stopped
     environment:
       PGADMIN_DEFAULT_EMAIL: admin@tcc.com
-      PGADMIN_DEFAULT_PASSWORD: admin
+      PGADMIN_DEFAULT_PASSWORD: ${PGADMIN_DEFAULT_PASSWORD:-admin}
     ports:
-      - "5050:80"
+      - "${BIND_HOST:-0.0.0.0}:5050:80"
     depends_on:
       - db
 

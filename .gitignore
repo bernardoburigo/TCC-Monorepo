@@ -1,2 +1,4 @@
 /.claude
 /CLAUDE.md
+# segredos reais de deploy (criado à mão no servidor, ao lado do docker-compose.yml)
+.env

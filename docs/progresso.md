@@ -5,20 +5,21 @@ do [`CLAUDE.md`](../CLAUDE.md) (fonte da verdade para datas e critérios) e
 os diários detalhados em `docs/stack-DD-MM.md`. Atualizar ao fechar cada
 sprint ou pendência relevante.
 
-**Última atualização:** 09/10/2026.
-**Prazo de entrega do artigo:** 09/11/2026 (faltam ~31 dias na última
-atualização). **Maior risco:** disponibilidade do ESP32 físico — bloqueia
-a Sprint 3 (Etapa B) e tudo que depende dela.
+**Última atualização:** 15/10/2026.
+**Prazo de entrega do artigo:** 09/11/2026 (faltam ~25 dias). **Maior
+risco agora é tempo, não hardware:** o ESP32 chegou e o pipeline ponta a
+ponta já funciona (15/10) — falta calibração formal, queda de rede,
+multi-apartamento e os 120 ensaios de bancada da Sprint 6.
 
 ## Resumo rápido
 
 | Sprint | Status |
 |---|---|
 | 0 — Setup | ✅ concluída |
-| 1 — Firmware isolado | 🟡 concluída sem hardware (falta upload + calibração) |
+| 1 — Firmware isolado | 🟡 upload feito (15/10), pulsos confirmados; falta calibração quantitativa |
 | 2 — Backend + banco | ✅ concluída |
-| 3 — Integração ESP32 → API | 🟡 código pronto; falta a Etapa B (hardware) |
-| 4 — Dashboard/App | 🟡 validada com dados simulados + celular; falta dado real |
+| 3 — Integração ESP32 → API | 🟡 ponta a ponta funcionando (15/10); falta calibração e teste de queda de rede |
+| 4 — Dashboard/App | 🟡 dados reais chegando no backend (15/10); falta conferir no app/gráfico |
 | 5 — Multi-apartamento | ⬜ não iniciada |
 | 6 — Testes de bancada | ⬜ não iniciada (delineamento já definido no artigo) |
 | 7 — Fechamento do artigo | ⬜ não iniciada |
@@ -35,8 +36,9 @@ a Sprint 3 (Etapa B) e tudo que depende dela.
 - [x] Leitura de pulsos via interrupt, cálculo de vazão, Serial
 - [x] Lib `FlowMeter` pura, testada no host (`pio test -e native`)
 - [x] Compila para o ESP32 (`pio run -e esp32dev`)
-- [ ] **Upload no ESP32 físico** (bloqueado: hardware indisponível)
-- [ ] **Calibração inicial** (proveta + cronômetro, comparar com o Serial)
+- [x] **Upload no ESP32 físico** (15/10 — ESP32-D0WD-V3, pulsos confirmados)
+- [ ] **Calibração quantitativa** (proveta + cronômetro, comparar com o
+      Serial e ajustar `pulsos_por_litro`; hoje ainda no valor teórico, 450)
 
 ### Sprint 2 — Backend + banco ✅
 - [x] Entidades, migrações Flyway (V1–V8), CRUD completo
@@ -48,11 +50,17 @@ a Sprint 3 (Etapa B) e tudo que depende dela.
 - [x] Firmware: WiFiManager, NTP, fila + reenvio, política por status HTTP
 - [x] Backend: contrato de ingestão validado por curl (201/409/401/400)
 - [x] 23 testes nativos do firmware + 7 testes de contrato no backend
-- [ ] **Etapa B (requer ESP32 físico):**
-  - [ ] Upload do firmware
-  - [ ] Calibração da Sprint 1
-  - [ ] Teste ponta a ponta (torneira → banco em segundos)
-  - [ ] Teste de queda de rede (Wi-Fi e backend)
+- [x] **Etapa B — concluído em 15/10:**
+  - [x] Upload do firmware no ESP32 físico
+  - [x] Portal cativo configurado (Wi-Fi real, API URL, sensorId/token de
+        um sensor real criado via API — apartamento 201, `simulado=false`)
+  - [x] Teste ponta a ponta: pulso no sensor → `POST /api/leituras` → banco
+        (confirmado via `GET .../consumo`, latência ≈ 0,5–1 s)
+  - [x] Fila/retry exercitados organicamente (1ª tentativa falhou antes do
+        NTP estabilizar; reteve e reenviou com sucesso)
+- [ ] Calibração quantitativa (ver Sprint 1 — ainda no K teórico, 450
+      pulsos/L)
+- [ ] Teste de queda de rede proposital (desligar Wi-Fi/backend de propósito)
 
 ### Sprint 4 — Dashboard/App 🟡
 - [x] App Web completo (login, lista, gráfico, detalhe do sensor, alerta)
@@ -63,7 +71,10 @@ a Sprint 3 (Etapa B) e tudo que depende dela.
       dispositivos; contornado)
 - [x] **Modo mock do frontend** (09/10, `app/src/api/mock/`) — visualizar
       sem backend/Docker/simulador, desacoplado e fácil de remover
-- [ ] **Dados reais do sensor no gráfico** (depende da Sprint 3, Etapa B)
+- [x] **Dados reais chegando no backend** (15/10, apartamento 201/sensor
+      `ESP32-REAL-201`) — confirmado via API
+- [ ] Conferir visualmente no app (Web/celular) que o gráfico e o polling
+      mostram esse sensor real corretamente (ainda não verificado)
 
 ### Sprint 5 — Multi-apartamento ⬜
 - [ ] Réplica física (1-2 kits ESP32 + YF-S201 extras) e/ou
@@ -94,7 +105,8 @@ calibração + 30 de validação) = **120 ensaios**.
 - [ ] Revisão final do texto
 - [ ] Entrega do artigo até 09/11/2026
 - [ ] *(depois de 09/11, sem data ainda)* deploy de demonstração testado,
-      preparação da apresentação/banca
+      preparação da apresentação/banca — plano completo já pronto em
+      `docs/deploy-servidor.md` (15/10), execução ainda não iniciada
 
 ## Pendências específicas para o artigo final
 
