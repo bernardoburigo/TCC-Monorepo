@@ -246,8 +246,8 @@ estavam no desenho inicial:
 - [ ] Nada disso foi executado ainda — depende do orientando comprar o
   domínio, criar as contas Cloudflare/Vercel e instalar o Claude Code no
   servidor.
-- [ ] Confirmar se o repositório no GitHub é público ou privado (afeta o
-  `git clone` no servidor).
+- [x] Repositório confirmado **público** (`api.github.com`, sem auth) —
+  `git clone` no servidor não precisa de token/deploy key.
 
 ## Observações para a redação do TCC
 

@@ -103,8 +103,7 @@ git clone https://github.com/bernardoburigo/TCC-Monorepo.git
 cd TCC-Monorepo
 ```
 
-Se o clone falhar por permissão, o repositório pode estar privado —
-confirme a visibilidade no GitHub e use um token/deploy key se necessário.
+(Repositório público — confirmado em 15/10/2026 — clone sem autenticação.)
 
 ### C.3 — Segredos de produção
 
