@@ -9,6 +9,8 @@ import { preencherSerie, rotuloVisivel } from '@/lib/serie';
 
 const LARGURA_EIXO_Y = 44;
 const ALTURA = 200;
+const LARGURA_ROTULO = 32; // "dd/MM" em 10 px cabe sem quebrar nem cortar
+const MARGEM_ROTULO = 2;
 
 // Barras de consumo por hora/dia. Uma barra por intervalo (zero onde não houve consumo);
 // tocar numa barra mostra o valor exato acima do gráfico.
@@ -29,9 +31,13 @@ export function ConsumoChart({ consumo }: { consumo: ConsumoApartamento }) {
   const faixa = serie.length > 0 ? areaUtil / serie.length : 0; // largura reservada a cada barra
   const larguraBarra = Math.min(Math.max(faixa * 0.62, 3), 34);
 
+  const maxRotulos = Math.floor(areaUtil / (LARGURA_ROTULO + MARGEM_ROTULO));
+
+  // Rótulos do eixo X desenhados à parte (o contêiner do rótulo do gifted-charts tem a largura da
+  // faixa da barra, poucos px em 24 h, e cortava/quebrava o texto): um Text de largura fixa
+  // centrado em cada barra.
   const dados = serie.map((ponto, i) => ({
     value: litros[i],
-    label: rotuloVisivel(i, serie.length) ? rotuloDoPonto(ponto.periodo, consumo.granularidade) : '',
     frontColor: i === selecionado ? '#075985' : '#0ea5e9',
     onPress: () => setSelecionado((atual) => (atual === i ? null : i)),
   }));
@@ -73,6 +79,25 @@ export function ConsumoChart({ consumo }: { consumo: ConsumoApartamento }) {
             disableScroll
             isAnimated={false}
           />
+          <View style={{ height: 18, marginTop: -4 }}>
+            {serie.map((p, i) =>
+              rotuloVisivel(i, serie.length, maxRotulos) ? (
+                <Text
+                  key={p.periodo}
+                  numberOfLines={1}
+                  style={{
+                    position: 'absolute',
+                    left: LARGURA_EIXO_Y + faixa * (i + 0.5) - LARGURA_ROTULO / 2,
+                    width: LARGURA_ROTULO,
+                    textAlign: 'center',
+                    color: '#64748b',
+                    fontSize: 10,
+                  }}>
+                  {rotuloDoPonto(p.periodo, consumo.granularidade)}
+                </Text>
+              ) : null,
+            )}
+          </View>
         </View>
       ) : null}
     </View>

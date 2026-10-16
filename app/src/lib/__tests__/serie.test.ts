@@ -68,5 +68,10 @@ describe('rotuloVisivel', () => {
     expect(visiveis.length).toBeLessThanOrEqual(9);
     expect(visiveis.length).toBeGreaterThan(3);
   });
-});
 
+  it('respeita o máximo que cabe na largura', () => {
+    const visiveis = Array.from({ length: 7 }, (_, i) => i).filter((i) => rotuloVisivel(i, 7, 4));
+    expect(visiveis.length).toBeLessThanOrEqual(4);
+    expect(visiveis[0]).toBe(0);
+  });
+});

@@ -4,6 +4,7 @@
 #include <WiFi.h>
 #include <WiFiClientSecure.h>
 #include <WiFiManager.h>
+#include <lwip/dns.h>
 #include <sys/time.h>
 
 #include "config.h"
@@ -11,6 +12,7 @@
 namespace {
 
 bool ntpStarted = false;
+bool dnsApplied = false;
 unsigned long lastWifiAttemptMs = 0;
 unsigned long buttonPressedSinceMs = 0;
 
@@ -19,6 +21,25 @@ void startNtp() {
     configTime(0, 0, NTP_SERVER_1, NTP_SERVER_2);
     ntpStarted = true;
     Serial.println("[NTP] sincronização iniciada");
+}
+
+// O DNS do roteador falha de forma intermitente para o host da API (16/10: "DNS Failed" por
+// minutos, mesmo com Wi-Fi e NTP ok). Prioriza um resolvedor público e mantém o do DHCP como
+// reserva. O DHCP reaplica o DNS dele a cada nova conexão, então isto roda a cada reconexão.
+void applyDnsServers() {
+    IPAddress roteador = WiFi.dnsIP(0);
+    ip_addr_t primario;
+    ip_addr_t reserva;
+    IP_ADDR4(&primario, 1, 1, 1, 1);
+    if (roteador == IPAddress(0, 0, 0, 0) || roteador == IPAddress(1, 1, 1, 1)) {
+        IP_ADDR4(&reserva, 8, 8, 8, 8);
+    } else {
+        IP_ADDR4(&reserva, roteador[0], roteador[1], roteador[2], roteador[3]);
+    }
+    dns_setserver(0, &primario);
+    dns_setserver(1, &reserva);
+    dnsApplied = true;
+    Serial.printf("[DNS] 1.1.1.1 (principal) + %s (reserva)\n", IPAddress(ip_addr_get_ip4_u32(&reserva)).toString().c_str());
 }
 
 String trimTrailingSlash(String url) {
@@ -86,6 +107,7 @@ bool begin(DeviceConfig& cfg) {
 
     if (conectado) {
         Serial.printf("[WiFi] conectado, IP %s\n", WiFi.localIP().toString().c_str());
+        applyDnsServers();
         startNtp();
     } else {
         Serial.println("[WiFi] sem conexão: seguindo offline, nova tentativa a cada 30 s");
@@ -98,10 +120,16 @@ bool begin(DeviceConfig& cfg) {
 
 void loop(unsigned long nowMs) {
     if (WiFi.status() == WL_CONNECTED) {
+        if (!dnsApplied) {
+            applyDnsServers();
+        }
         if (!ntpStarted) {
             startNtp();
         }
-    } else if (nowMs - lastWifiAttemptMs >= WIFI_RETRY_INTERVAL_MS) {
+    } else {
+        dnsApplied = false;  // o DHCP reaplica o DNS dele quando reconectar
+    }
+    if (WiFi.status() != WL_CONNECTED && nowMs - lastWifiAttemptMs >= WIFI_RETRY_INTERVAL_MS) {
         lastWifiAttemptMs = nowMs;
         Serial.println("[WiFi] desconectado, tentando reconectar");
         WiFi.mode(WIFI_STA);

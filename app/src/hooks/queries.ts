@@ -50,10 +50,11 @@ export function useConsumo(apartamentoId: string, periodoId: string) {
   });
 }
 
-export function useStatusDoSensor(sensorId: string) {
+export function useStatusDoSensor(sensorId: string | undefined) {
   return useQuery({
     queryKey: ['sensor', sensorId, 'status'],
-    queryFn: () => buscarStatusDoSensor(sensorId),
+    queryFn: () => buscarStatusDoSensor(sensorId as string),
+    enabled: !!sensorId,
     refetchInterval: POLLING_AO_VIVO_MS,
   });
 }

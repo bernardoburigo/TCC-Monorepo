@@ -1,6 +1,6 @@
 import { format } from 'date-fns';
 import { useMemo, useState } from 'react';
-import { View } from 'react-native';
+import { Text, View } from 'react-native';
 import { LineChart } from 'react-native-gifted-charts';
 
 import { formatarEixo, passoRedondo } from '@/lib/eixo';
@@ -8,32 +8,18 @@ import type { PontoVazao } from '@/lib/vazao';
 
 const LARGURA_EIXO_Y = 52;
 const ALTURA = 180;
-const CINCO_MIN_MS = 5 * 60_000;
+const LARGURA_ROTULO = 40;
+// Rótulos do eixo X em posições FIXAS (frações da largura); só o texto acompanha o horário.
+const FRACOES = [0, 0.2, 0.4, 0.6, 0.8, 1];
 
-// Cada ponto ocupa poucos pixels (360 leituras em ~600 px), mas o contêiner do rótulo do
-// gifted-charts tem largura `spacing + labelsExtraHeight`: sem folga o "21:15" quebra em
-// caracteres soltos. A folga é dada e o texto é deslocado metade dela para ficar centrado no ponto.
-const FOLGA_ROTULO = 36;
-
-// Vazão (L/min) ao longo do tempo, uma amostra por janela de leitura. O eixo X mostra um
-// rótulo a cada 5 minutos (no primeiro ponto depois de cada múltiplo de 5 min).
+// Vazão (L/min) ao longo do tempo, uma amostra por janela de leitura.
 export function VazaoChart({ pontos }: { pontos: PontoVazao[] }) {
   const [largura, setLargura] = useState(0);
 
-  const dados = useMemo(() => {
-    // O 1º ponto nunca ganha rótulo: ele quase nunca cai num múltiplo de 5 min e o texto
-    // (ex.: "20:54") colidiria com o rótulo do próximo balde (20:55).
-    let baldeAnterior = pontos.length > 0 ? Math.floor(pontos[0].instante / CINCO_MIN_MS) : -1;
-    return pontos.map((ponto) => {
-      const balde = Math.floor(ponto.instante / CINCO_MIN_MS);
-      const novoBalde = balde !== baldeAnterior;
-      baldeAnterior = balde;
-      return {
-        value: ponto.litrosPorMinuto,
-        label: novoBalde ? format(new Date(ponto.instante), 'HH:mm') : '',
-      };
-    });
-  }, [pontos]);
+  const dados = useMemo(() => pontos.map((ponto) => ({ value: ponto.litrosPorMinuto })), [pontos]);
+
+  const inicio = pontos.length > 0 ? pontos[0].instante : 0;
+  const fim = pontos.length > 0 ? pontos[pontos.length - 1].instante : 0;
 
   const maximo = Math.max(...pontos.map((p) => p.litrosPorMinuto), 0);
   const passo = passoRedondo(maximo / 4);
@@ -61,8 +47,6 @@ export function VazaoChart({ pontos }: { pontos: PontoVazao[] }) {
             xAxisColor="#cbd5e1"
             rulesColor="#e2e8f0"
             yAxisTextStyle={{ color: '#64748b', fontSize: 11 }}
-            xAxisLabelTextStyle={{ color: '#64748b', fontSize: 11, marginLeft: -FOLGA_ROTULO / 2 }}
-            labelsExtraHeight={FOLGA_ROTULO}
             color="#0284c7"
             thickness={2}
             hideDataPoints
@@ -74,6 +58,23 @@ export function VazaoChart({ pontos }: { pontos: PontoVazao[] }) {
             disableScroll
             isAnimated={false}
           />
+          <View style={{ height: 20, marginLeft: LARGURA_EIXO_Y }}>
+            {FRACOES.map((fracao) => (
+              <Text
+                key={fracao}
+                numberOfLines={1}
+                style={{
+                  position: 'absolute',
+                  left: areaUtil * fracao - LARGURA_ROTULO / 2,
+                  width: LARGURA_ROTULO,
+                  textAlign: 'center',
+                  color: '#64748b',
+                  fontSize: 11,
+                }}>
+                {format(new Date(inicio + (fim - inicio) * fracao), 'HH:mm')}
+              </Text>
+            ))}
+          </View>
         </View>
       ) : null}
     </View>

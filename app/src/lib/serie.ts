@@ -39,10 +39,12 @@ export function preencherSerie(
   return usados === pontos.length ? serie : pontos;
 }
 
-// Com muitas barras os rótulos do eixo X se sobrepõem: mostra ~8 no máximo, sempre o primeiro.
-export function rotuloVisivel(indice: number, total: number): boolean {
-  if (total <= 8) {
+// Com muitas barras os rótulos do eixo X se sobrepõem: mostra no máximo `maximo` (o que cabe
+// na largura), sempre o primeiro.
+export function rotuloVisivel(indice: number, total: number, maximo = 8): boolean {
+  const limite = Math.max(maximo, 1);
+  if (total <= limite) {
     return true;
   }
-  return indice % Math.ceil(total / 8) === 0;
+  return indice % Math.ceil(total / limite) === 0;
 }
