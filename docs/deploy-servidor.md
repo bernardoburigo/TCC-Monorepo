@@ -13,11 +13,11 @@ do histórico desta conversa.
 ## Arquitetura
 
 ```
-app.SEUDOMINIO.com  --DNS only-->  Vercel (build estático do Expo Web)
+tcc.bernardoburigo.com.br  --DNS only-->  Vercel (build estático do Expo Web)
                                          |
                                          | chama a API via EXPO_PUBLIC_API_URL
                                          v
-api.SEUDOMINIO.com  --proxied-->  Cloudflare Tunnel  -->  cloudflared (no servidor)
+apitcc.bernardoburigo.com.br  --proxied-->  Cloudflare Tunnel  -->  cloudflared (no servidor)
                                                                 |
                                                                 v
                                                    backend Spring Boot (porta 8080,
@@ -54,10 +54,10 @@ dispositivo, a qualquer momento antes da Parte C.
    - **Node.js Version:** 22.x (Settings → General — redundante com o
      `engines` do `app/package.json`, mas confirme os dois)
    - **Environment Variables** (ambiente Production):
-     - `EXPO_PUBLIC_API_URL=https://api.SEUDOMINIO.com`
+     - `EXPO_PUBLIC_API_URL=https://apitcc.bernardoburigo.com.br`
      - `EXPO_PUBLIC_USE_MOCK_DATA=false`
 4. **Domínio customizado na Vercel:** em Settings → Domains do projeto,
-   adicionar `app.SEUDOMINIO.com`. A Vercel mostra o CNAME exato (algo
+   adicionar `tcc.bernardoburigo.com.br`. A Vercel mostra o CNAME exato (algo
    como `cname.vercel-dns.com`) — criar esse registro na Cloudflare como
    **DNS only** (nuvem **cinza**, não laranja). Isso é obrigatório: a
    emissão do certificado TLS da Vercel e o roteamento dela esperam
@@ -113,7 +113,7 @@ JWT_SECRET=$(openssl rand -base64 48)
 POSTGRES_PASSWORD=$(openssl rand -base64 24)
 DB_PASSWORD=<igual ao POSTGRES_PASSWORD acima>
 PGADMIN_DEFAULT_PASSWORD=$(openssl rand -base64 24)
-APP_CORS_ALLOWED_ORIGINS=https://app.SEUDOMINIO.com
+APP_CORS_ALLOWED_ORIGINS=https://tcc.bernardoburigo.com.br
 BIND_HOST=127.0.0.1
 EOF
 ```
@@ -153,13 +153,13 @@ tunnel: <TUNNEL_ID-gerado-no-create>
 credentials-file: /etc/cloudflared/<TUNNEL_ID>.json
 
 ingress:
-  - hostname: api.SEUDOMINIO.com
+  - hostname: apitcc.bernardoburigo.com.br
     service: http://localhost:8080
   - service: http_status:404   # catch-all obrigatório; sem isso o cloudflared não inicia
 ```
 
 ```bash
-cloudflared tunnel route dns tcc-backend api.SEUDOMINIO.com
+cloudflared tunnel route dns tcc-backend apitcc.bernardoburigo.com.br
 ```
 
 **Teste em foreground antes de virar serviço:**
@@ -167,7 +167,7 @@ cloudflared tunnel route dns tcc-backend api.SEUDOMINIO.com
 ```bash
 cloudflared tunnel run tcc-backend
 # noutro terminal/dispositivo fora da rede de casa:
-curl https://api.SEUDOMINIO.com/actuator/health
+curl https://apitcc.bernardoburigo.com.br/actuator/health
 ```
 
 Só depois de confirmar que responde, instale como serviço persistente:
@@ -199,17 +199,20 @@ Depois de qualquer edição em `config.yml`:
 Com o firmware já rodando, segure o botão **BOOT** (GPIO0) por 3s — apaga
 o Wi-Fi salvo e reabre o portal cativo `TCC-Sensor-Setup`. Reconfigure
 Wi-Fi + troque a **URL da API** de `http://192.168.x.x:8080` para
-`https://api.SEUDOMINIO.com`. Sem reflash — já é editável via NVS. O
-`sensorId`/token continuam os mesmos.
+`https://apitcc.bernardoburigo.com.br`. Sem reflash — já é editável via NVS.
+Se o banco do servidor começou vazio (volume não migrado), o sensor antigo
+não existe lá: cadastre síndico/condomínio/apartamento/sensor
+(`simulado=false`) pela API e informe no portal o `sensorId` e o token
+**novos**.
 
 ## Verificação ponta a ponta
 
-- `curl https://api.SEUDOMINIO.com/actuator/health` **de fora** da rede de
+- `curl https://apitcc.bernardoburigo.com.br/actuator/health` **de fora** da rede de
   casa (ex.: dados móveis) → `{"status":"UP"}`.
-- Abrir `https://app.SEUDOMINIO.com`, logar, navegar para uma rota
+- Abrir `https://tcc.bernardoburigo.com.br`, logar, navegar para uma rota
   profunda (ex.: um apartamento) e dar refresh — confirma o `vercel.json`
   (rewrite de SPA).
-- Expo Go no celular, `EXPO_PUBLIC_API_URL=https://api.SEUDOMINIO.com`,
+- Expo Go no celular, `EXPO_PUBLIC_API_URL=https://apitcc.bernardoburigo.com.br`,
   numa rede diferente da de casa.
 - No app, o apartamento do sensor real deve aparecer com o selo **REAL**
   e atualizar por polling, batendo com o Serial do ESP32.
@@ -225,7 +228,7 @@ do firmware e do token em claro na LAN — ver `CLAUDE.md` §8)
   check e o contrato completo da API (sem dado sensível real, é um
   protótipo). `show-details` já foi restrito a `when-authorized`
   (15/10/2026) para não vazar detalhes de banco/disco.
-- `app.SEUDOMINIO.com` fica "DNS only" (sem proxy/WAF/cache da Cloudflare)
+- `tcc.bernardoburigo.com.br` fica "DNS only" (sem proxy/WAF/cache da Cloudflare)
   por exigência da Vercel — só a proteção própria da Vercel se aplica
   nessa rota.
 - O firmware usa `WiFiClientSecure::setInsecure()` para HTTPS — o TLS de

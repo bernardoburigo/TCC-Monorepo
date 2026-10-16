@@ -42,6 +42,8 @@ services:
       JWT_SECRET: ${JWT_SECRET:-dev-secret-tcc-telemetria-troque-em-producao-0123456789}
       # Fluxo ininterrupto por este tempo (min) = alerta de vazamento provável. Para ver o alerta
       # rápido numa demonstração: APP_ALERTA_FLUXO_CONTINUO_MINUTOS=2 docker compose up -d backend
+      # Origens permitidas (CORS) do app Web; em produção: https://tcc.bernardoburigo.com.br
+      APP_CORS_ALLOWED_ORIGINS: ${APP_CORS_ALLOWED_ORIGINS:-http://localhost:8081,http://localhost:19006}
       APP_ALERTA_FLUXO_CONTINUO_MINUTOS: ${APP_ALERTA_FLUXO_CONTINUO_MINUTOS:-30}
     ports:
       - "${BIND_HOST:-0.0.0.0}:8080:8080"
