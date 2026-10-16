@@ -15,6 +15,10 @@ sensor real) já estão provisionados. O Cloudflare Tunnel está no ar como
 serviço systemd: `https://apitcc.bernardoburigo.com.br` responde pela
 internet. Falta reconfigurar o ESP32 e fazer a verificação ponta a ponta.
 
+Em paralelo, o app recebeu seis ajustes visuais (eixos dos gráficos, popup de
+usuário no mobile, botão "voltar" após F5) e o firmware ganhou DNS resiliente
+(seção 6). Tudo isso foi commitado em `0e73825`.
+
 ## 1. Estado encontrado no servidor
 
 - Docker 29.3.1 + Compose v5.1.1, git, openssl e python3 já instalados; o
@@ -126,13 +130,67 @@ repositório, e isso viraria um login público conhecido.
   `--no-autoupdate`: `active`, `enabled`, 4 conexões registradas. Depois de
   encerrado o túnel de teste, o serviço sozinho segue respondendo `UP`.
 
-## 6. Pendente
+## 6. Ajustes visuais do app (e DNS do firmware)
+
+Levantados pelo usuário com prints do app em produção e no celular
+(`docs/screenshots/Captura_de_tela_20261016_*.png`). Todos em `app/src/`.
+
+1. **Eixo X do gráfico de vazão (30 min)** — os rótulos eram gerados por
+   ponto (um a cada múltiplo de 5 min) e se sobrepunham. Agora são 6 rótulos
+   em posições **fixas** (frações 0, 0,2 … 1 da largura); só o texto `HH:mm`
+   muda, interpolado entre a primeira e a última leitura da janela
+   (`VazaoChart.tsx`).
+2. **Cabeçalho no mobile (< 640 px)** — nome do usuário e "Sair" espremiam o
+   título ("Apto 2…"). Agora um botão redondo com ícone de usuário abre um
+   popup com nome, papel e "Sair"; com o popup aberto o botão vira "X" e
+   fecha (tocar fora também fecha). Ícones em `react-native-svg` (não há
+   vector-icons no projeto). Desktop inalterado (`Cabecalho.tsx`).
+3. **Eixo X do gráfico de consumo (24 h, 7 d, 30 d) — bug real, 2 tentativas.**
+   - *1ª:* `labelComponent` do gifted-charts com `Text` de largura fixa. Piorou:
+     o contêiner do rótulo tem a largura da faixa da barra e continuou
+     truncando ("0.."); além disso o limite de rótulos (`areaUtil / 40`)
+     mostrava só 4 dos 7 dias.
+   - *Final:* os rótulos saem do gifted-charts e são desenhados numa linha
+     própria, cada `Text` com 32 px, centrado na barra. `rotuloVisivel(i,
+     total, maximo)` recebeu o máximo calculado pela largura (≈ 1 rótulo a
+     cada 34 px); 7 dias mostra os 7, 24 h e 30 d mostram uma amostra
+     (`ConsumoChart.tsx`, `lib/serie.ts`, +1 teste Jest).
+4. **Botão "‹" sumia após F5** — o `back` do React Navigation fica
+   indefinido sem histórico (a pilha recomeça na tela atual).
+   - *1ª:* mostrar o botão em toda tela ≠ `index`, voltando a `/`. Resolveu o
+     sumiço, mas após F5 no sensor o "‹" levava a Apartamentos, não ao
+     apartamento.
+   - *Final:* `CabecalhoDaPilha` (`_layout.tsx`) usa o `apartamentoId` do
+     status do sensor (`useStatusDoSensor`, que agora aceita `undefined` e
+     tem `enabled`; a mesma query da tela, deduplicada pelo cache) para
+     montar `/apartamento/{id}`. Sem histórico e sem dado, cai em `/`.
+5. **Firmware — DNS** (`Network.cpp`) — o DNS do roteador falhava de forma
+   intermitente para o host da API ("DNS Failed" por minutos, com Wi-Fi e
+   NTP ok). `applyDnsServers()` define 1.1.1.1 como principal e o DNS do
+   DHCP (ou 8.8.8.8, se o do roteador for vazio/1.1.1.1) como reserva, e é
+   reaplicada a cada reconexão porque o DHCP sobrescreve. O loop de
+   reconexão foi reorganizado para isso.
+
+**Testes:** `tsc` e Jest 41/41 passam. A suíte e2e (navegador headless) foi
+rodada uma vez, *antes* das correções 3 e 4: 26 ok, 7 falhas, 1 ignorado em
+34 — pelo menos uma no `sensor.e2e` (espera por `status-OFFLINE`, que existia
+no DOM mas estava oculto). A causa **não foi investigada**. O
+`app/e2e/cabecalho.e2e.mjs` (botão "‹" após F5 e popup mobile) foi criado e
+**ainda não foi executado**. Não há teste novo do firmware para o DNS, e ele
+ainda não foi validado no ESP32 com a URL pública. A conferência visual foi
+feita pelo usuário: itens 1, 2 e 4 confirmados; 3 corrigido após o 1º retorno
+e confirmado depois.
+
+## 7. Pendente
 
 - [ ] Reboot do servidor (pendente por causa do `apparmor`; o túnel e os containers voltam sozinhos)
-- [ ] C7: reconfigurar o ESP32 (URL `https://apitcc.bernardoburigo.com.br` + sensorId/token novos)
+- [ ] C7: reconfigurar o ESP32 (URL `https://apitcc.bernardoburigo.com.br` + sensorId/token novos) e validar o DNS resiliente no hardware
 - [ ] Verificação ponta a ponta (app Web na Vercel, selo REAL, Expo Go em outra rede)
+- [ ] Investigar as 7 falhas do e2e e rodar `app/e2e/cabecalho.e2e.mjs`
+- [ ] Usuário: teste mais profundo do gráfico de vazão (item 1)
 
 ## Estado do repositório
 
-As alterações da seção 2 e este arquivo estão no working tree do servidor,
-ainda **não commitados**.
+Deploy (seção 2) e ajustes visuais/firmware (seção 6) estão commitados
+(`0e73825`, "Aprimoramento Visual do site e app"); árvore de trabalho limpa
+ao escrever este registro.

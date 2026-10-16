@@ -58,6 +58,8 @@ multi-apartamento e os 120 ensaios de bancada da Sprint 6.
         (confirmado via `GET .../consumo`, latência ≈ 0,5–1 s)
   - [x] Fila/retry exercitados organicamente (1ª tentativa falhou antes do
         NTP estabilizar; reteve e reenviou com sucesso)
+- [x] Firmware: DNS resiliente (1.1.1.1 + reserva do DHCP, 16/10) — a
+      validar no hardware
 - [ ] Calibração quantitativa (ver Sprint 1 — ainda no K teórico, 450
       pulsos/L)
 - [ ] Teste de queda de rede proposital (desligar Wi-Fi/backend de propósito)
@@ -65,7 +67,7 @@ multi-apartamento e os 120 ensaios de bancada da Sprint 6.
 ### Sprint 4 — Dashboard/App 🟡
 - [x] App Web completo (login, lista, gráfico, detalhe do sensor, alerta)
 - [x] Backend: endpoints `/api/me*`, status do sensor, CORS, fuso, alerta
-- [x] Testes: backend 42, Jest 40 (33 do app + 7 do modo mock), e2e 32
+- [x] Testes: backend 42, Jest 41 (34 do app + 7 do modo mock), e2e 32
 - [x] **Celular (Expo Go) validado em 09/10** — conectividade LAN resolvida
       (rede Wi-Fi institucional bloqueava comunicação direta entre
       dispositivos; contornado)
@@ -73,6 +75,12 @@ multi-apartamento e os 120 ensaios de bancada da Sprint 6.
       sem backend/Docker/simulador, desacoplado e fácil de remover
 - [x] **Dados reais chegando no backend** (15/10, apartamento 201/sensor
       `ESP32-REAL-201`) — confirmado via API
+- [x] **Ajustes visuais/mobile (16/10):** eixo X fixo no gráfico de vazão,
+      popup de usuário no mobile, rótulos legíveis nos gráficos de consumo,
+      "‹" resiliente a F5 (volta ao apartamento do sensor) — ver
+      `docs/stack-16-10.md`
+- [ ] Investigar as 7 falhas do e2e (rodada de 16/10, antes das correções) e
+      rodar `app/e2e/cabecalho.e2e.mjs`
 - [ ] Conferir visualmente no app (Web/celular) que o gráfico e o polling
       mostram esse sensor real corretamente (ainda não verificado)
 
