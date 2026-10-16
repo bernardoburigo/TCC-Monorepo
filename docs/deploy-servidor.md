@@ -115,6 +115,7 @@ DB_PASSWORD=<igual ao POSTGRES_PASSWORD acima>
 PGADMIN_DEFAULT_PASSWORD=$(openssl rand -base64 24)
 APP_CORS_ALLOWED_ORIGINS=https://tcc.bernardoburigo.com.br
 BIND_HOST=127.0.0.1
+APP_REGISTRO_ADMIN_TOKEN=$(openssl rand -hex 32)
 EOF
 ```
 
@@ -122,7 +123,9 @@ EOF
 ser idênticos. `BIND_HOST=127.0.0.1` faz `db`/`backend`/`pgadmin`
 publicarem suas portas só em localhost (em dev, sem essa variável, o
 padrão continua `0.0.0.0`) — só o `cloudflared` local (passo C.5) precisa
-alcançar a 8080. Esse `.env` **nunca** deve ser commitado (já coberto pelo
+alcançar a 8080. `APP_REGISTRO_ADMIN_TOKEN` é o header `X-Admin-Token` exigido
+no `POST /api/auth/registrar` (sem ele o registro de usuários fica fechado;
+`simulador.py provisionar --admin-token ...`). Esse `.env` **nunca** deve ser commitado (já coberto pelo
 `.gitignore` da raiz).
 
 ### C.4 — Subir o stack

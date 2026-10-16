@@ -31,6 +31,7 @@ Limitações conhecidas (a Sprint 5 evolui este script):
 import argparse
 import json
 import math
+import os
 import random
 import signal
 import sys
@@ -114,10 +115,11 @@ def cmd_provisionar(args):
     api = args.api.rstrip("/")
     caminho = Path(args.estado)
     estado = json.loads(caminho.read_text()) if caminho.exists() else {}
+    admin = {"X-Admin-Token": args.admin_token}  # o registro de usuários não é público
 
     # síndico + condomínio (o registro do síndico cria o condomínio)
     status, corpo = http("POST", f"{api}/api/auth/registrar", {
-        **SINDICO, "role": "SINDICO", "nomeCondominio": NOME_CONDOMINIO})
+        **SINDICO, "role": "SINDICO", "nomeCondominio": NOME_CONDOMINIO}, headers=admin)
     if status == 201:
         print(f"síndico criado: {SINDICO['email']}")
     else:
@@ -163,7 +165,7 @@ def cmd_provisionar(args):
     proprietario_ok = estado.get("proprietario")
     if not proprietario_ok:
         status, corpo = http("POST", f"{api}/api/auth/registrar", {
-            **PROPRIETARIO, "role": "PROPRIETARIO", "apartamentoIds": [sensores[0]["apartamentoId"]]})
+            **PROPRIETARIO, "role": "PROPRIETARIO", "apartamentoIds": [sensores[0]["apartamentoId"]]}, headers=admin)
         if status == 201:
             print(f"proprietário criado: {PROPRIETARIO['email']} (apartamento {sensores[0]['numero']})")
         else:
@@ -359,6 +361,8 @@ def main():
     p = sub.add_parser("provisionar", help="cria síndico, condomínio, apartamentos e sensores simulados")
     p.add_argument("--api", default="http://localhost:8080")
     p.add_argument("--apartamentos", type=int, default=3)
+    p.add_argument("--admin-token", default=os.environ.get("TCC_ADMIN_TOKEN", "dev-admin-token"),
+                   help="X-Admin-Token do registro (APP_REGISTRO_ADMIN_TOKEN do backend); padrão: env TCC_ADMIN_TOKEN ou o valor de dev")
     p.set_defaults(func=cmd_provisionar)
 
     for nome, ajuda, func in (("historico", "gera histórico (backfill) até agora", cmd_historico),

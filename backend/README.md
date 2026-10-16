@@ -40,7 +40,7 @@ simulados). Ver seção 5 do `CLAUDE.md` na raiz do repositório.
 
 | Método | Path | Autenticação | Descrição |
 |---|---|---|---|
-| POST | `/api/auth/registrar` | público | cria usuário; `SINDICO` cria um `Condominio` junto (`nomeCondominio`); `PROPRIETARIO` vincula `apartamentoIds` já existentes |
+| POST | `/api/auth/registrar` | header `X-Admin-Token` (= `APP_REGISTRO_ADMIN_TOKEN`; vazio desativa o registro; 403 se ausente/inválido) | cria usuário; `SINDICO` cria um `Condominio` junto (`nomeCondominio`); `PROPRIETARIO` vincula `apartamentoIds` já existentes |
 | POST | `/api/auth/login` | público | retorna JWT |
 | CRUD | `/api/condominios[/{id}]` | JWT, role `SINDICO` | soft delete |
 | CRUD | `/api/apartamentos[/{id}]` (`?condominioId=` na listagem) | JWT, role `SINDICO` | soft delete |

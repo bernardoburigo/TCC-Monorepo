@@ -5,7 +5,7 @@ do [`CLAUDE.md`](../CLAUDE.md) (fonte da verdade para datas e critérios) e
 os diários detalhados em `docs/stack-DD-MM.md`. Atualizar ao fechar cada
 sprint ou pendência relevante.
 
-**Última atualização:** 15/10/2026.
+**Última atualização:** 16/10/2026.
 **Prazo de entrega do artigo:** 09/11/2026 (faltam ~25 dias). **Maior
 risco agora é tempo, não hardware:** o ESP32 chegou e o pipeline ponta a
 ponta já funciona (15/10) — falta calibração formal, queda de rede,
@@ -104,9 +104,13 @@ calibração + 30 de validação) = **120 ensaios**.
       (foto da bancada)
 - [ ] Revisão final do texto
 - [ ] Entrega do artigo até 09/11/2026
-- [ ] *(depois de 09/11, sem data ainda)* deploy de demonstração testado,
-      preparação da apresentação/banca — plano completo já pronto em
-      `docs/deploy-servidor.md` (15/10), execução ainda não iniciada
+- [x] Deploy no servidor caseiro (16/10): stack em `127.0.0.1`, `.env` de produção,
+      registro de usuários fechado por `X-Admin-Token`, síndico + apto 201 +
+      sensor real provisionados — ver `docs/stack-16-10.md`
+- [x] Cloudflare Tunnel `apitcc.bernardoburigo.com.br` no ar como serviço systemd (16/10)
+- [ ] Reconfigurar o ESP32 para a URL pública e fazer a verificação ponta a ponta (app na Vercel, selo REAL)
+- [ ] *(depois de 09/11, sem data ainda)* deploy de demonstração testado de ponta a ponta,
+      preparação da apresentação/banca
 
 ## Pendências específicas para o artigo final
 

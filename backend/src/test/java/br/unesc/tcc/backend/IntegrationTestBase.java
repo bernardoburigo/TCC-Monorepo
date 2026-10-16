@@ -37,7 +37,6 @@ import br.unesc.tcc.backend.usuario.UsuarioRole;
 import br.unesc.tcc.backend.usuario.dto.LoginRequest;
 import br.unesc.tcc.backend.usuario.dto.LoginResponse;
 import br.unesc.tcc.backend.usuario.dto.RegistroRequest;
-import br.unesc.tcc.backend.usuario.dto.UsuarioResponse;
 
 // Mesma imagem já validada no docker-compose.yml (Sprint 0): Postgres 16 + TimescaleDB.
 //
@@ -49,6 +48,8 @@ import br.unesc.tcc.backend.usuario.dto.UsuarioResponse;
 // reutiliza a mesma instância. O Ryuk do Testcontainers derruba o container ao final da JVM.
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 public abstract class IntegrationTestBase {
+
+    protected static final String ADMIN_TOKEN = "admin-token-de-teste";
 
     static final PostgreSQLContainer<?> postgres = new PostgreSQLContainer<>(
             DockerImageName.parse("timescale/timescaledb:latest-pg16").asCompatibleSubstituteFor("postgres"))
@@ -65,6 +66,7 @@ public abstract class IntegrationTestBase {
         registry.add("spring.datasource.url", postgres::getJdbcUrl);
         registry.add("spring.datasource.username", postgres::getUsername);
         registry.add("spring.datasource.password", postgres::getPassword);
+        registry.add("app.registro.admin-token", () -> ADMIN_TOKEN);
     }
 
     @LocalServerPort
@@ -98,8 +100,15 @@ public abstract class IntegrationTestBase {
     }
 
     protected void registrar(RegistroRequest request) {
-        ResponseEntity<UsuarioResponse> resposta = restTemplate.postForEntity("/api/auth/registrar", request, UsuarioResponse.class);
-        assertThat(resposta.getStatusCode()).isEqualTo(HttpStatus.CREATED);
+        assertThat(registrarComToken(ADMIN_TOKEN, request).getStatusCode()).isEqualTo(HttpStatus.CREATED);
+    }
+
+    protected ResponseEntity<String> registrarComToken(String adminToken, RegistroRequest request) {
+        HttpHeaders headers = new HttpHeaders();
+        if (adminToken != null) {
+            headers.set("X-Admin-Token", adminToken);
+        }
+        return restTemplate.postForEntity("/api/auth/registrar", new HttpEntity<>(request, headers), String.class);
     }
 
     protected String logar(String email, String senha) {

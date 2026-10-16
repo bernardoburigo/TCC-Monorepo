@@ -1,5 +1,7 @@
 package br.unesc.tcc.backend.usuario;
 
+import java.nio.charset.StandardCharsets;
+import java.security.MessageDigest;
 import java.util.List;
 import java.util.Objects;
 
@@ -11,10 +13,12 @@ import org.springframework.transaction.annotation.Transactional;
 
 import br.unesc.tcc.backend.apartamento.Apartamento;
 import br.unesc.tcc.backend.apartamento.ApartamentoRepository;
+import br.unesc.tcc.backend.common.AcessoNegadoException;
 import br.unesc.tcc.backend.common.ConflitoException;
 import br.unesc.tcc.backend.common.EntidadeNaoEncontradaException;
 import br.unesc.tcc.backend.condominio.Condominio;
 import br.unesc.tcc.backend.condominio.CondominioRepository;
+import br.unesc.tcc.backend.config.AppProperties;
 import br.unesc.tcc.backend.security.JwtService;
 import br.unesc.tcc.backend.usuario.dto.LoginRequest;
 import br.unesc.tcc.backend.usuario.dto.LoginResponse;
@@ -32,9 +36,12 @@ public class AuthService {
     private final PasswordEncoder passwordEncoder;
     private final AuthenticationManager authenticationManager;
     private final JwtService jwtService;
+    private final AppProperties props;
 
     @Transactional
-    public UsuarioResponse registrar(RegistroRequest request) {
+    public UsuarioResponse registrar(String adminToken, RegistroRequest request) {
+        exigirAdminToken(adminToken);
+
         if (usuarioRepository.existsByEmail(request.email())) {
             throw new ConflitoException("Já existe um usuário cadastrado com este e-mail");
         }
@@ -53,6 +60,16 @@ public class AuthService {
         }
 
         return UsuarioResponse.de(usuario);
+    }
+
+    // Validado antes de qualquer consulta, para não revelar quais e-mails já existem.
+    private void exigirAdminToken(String recebido) {
+        String esperado = props.registro().adminToken();
+        boolean valido = esperado != null && !esperado.isBlank() && recebido != null
+                && MessageDigest.isEqual(esperado.getBytes(StandardCharsets.UTF_8), recebido.getBytes(StandardCharsets.UTF_8));
+        if (!valido) {
+            throw new AcessoNegadoException("Registro exige um X-Admin-Token válido");
+        }
     }
 
     private void criarCondominioParaSindico(Usuario sindico, String nomeCondominio) {

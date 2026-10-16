@@ -15,7 +15,8 @@ public record AppProperties(
         @DefaultValue("America/Sao_Paulo") String timezone,
         @DefaultValue Cors cors,
         @DefaultValue Sensor sensor,
-        @DefaultValue Alerta alerta) {
+        @DefaultValue Alerta alerta,
+        @DefaultValue Registro registro) {
 
     public record Cors(
             @DefaultValue({"http://localhost:8081", "http://localhost:19006"}) List<String> allowedOrigins) {
@@ -33,6 +34,13 @@ public record AppProperties(
             // Diferença máxima entre leituras consecutivas para tratá-las como contínuas (o
             // firmware envia a cada 5 s; mais que isso = sensor ficou sem enviar).
             @DefaultValue("15") int lacunaMaximaSegundos) {
+    }
+
+    public record Registro(
+            // Segredo exigido no header X-Admin-Token do POST /api/auth/registrar. Vazio (padrão)
+            // = registro desativado: com a API pública, ninguém de fora cria síndico nem se
+            // vincula como proprietário de um apartamento alheio.
+            @DefaultValue("") String adminToken) {
     }
 
 }

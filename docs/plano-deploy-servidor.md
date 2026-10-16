@@ -60,6 +60,7 @@ DB_PASSWORD=<IDÊNTICO ao POSTGRES_PASSWORD>
 PGADMIN_DEFAULT_PASSWORD=<openssl rand -base64 24>
 APP_CORS_ALLOWED_ORIGINS=https://tcc.bernardoburigo.com.br
 BIND_HOST=127.0.0.1
+APP_REGISTRO_ADMIN_TOKEN=<openssl rand -hex 32>
 ```
 `DB_PASSWORD` e `POSTGRES_PASSWORD` autenticam a mesma conta; se diferirem, o
 backend não conecta. `chmod 600 .env`. Confirme com `git status` que o `.env`

@@ -23,6 +23,8 @@ import br.unesc.tcc.backend.sensor.dto.SensorCriadoResponse;
 import br.unesc.tcc.backend.sensor.dto.SensorResponse;
 import br.unesc.tcc.backend.sensor.dto.SensorStatusResponse;
 import br.unesc.tcc.backend.usuario.UsuarioRole;
+import br.unesc.tcc.backend.usuario.dto.LoginRequest;
+import br.unesc.tcc.backend.usuario.dto.RegistroRequest;
 import br.unesc.tcc.backend.usuario.dto.UsuarioResponse;
 
 // Endpoints do app (Sprint 4): visão por papel, status de sensor, leituras recentes,
@@ -37,6 +39,18 @@ class PainelIntegrationTest extends IntegrationTestBase {
                 .getStatusCode()).isEqualTo(HttpStatus.UNAUTHORIZED);
 
         assertThat(restTemplate.exchange("/api/me/apartamentos", HttpMethod.GET, autenticado("lixo.que.nao.eh.jwt"), String.class)
+                .getStatusCode()).isEqualTo(HttpStatus.UNAUTHORIZED);
+    }
+
+    @Test
+    void registroSemAdminTokenValidoRetorna403() {
+        RegistroRequest sindico = new RegistroRequest("Intruso", "intruso-" + UUID.randomUUID() + "@teste.com",
+                "senha12345", UsuarioRole.SINDICO, "Condomínio Intruso", null);
+
+        assertThat(registrarComToken(null, sindico).getStatusCode()).isEqualTo(HttpStatus.FORBIDDEN);
+        assertThat(registrarComToken("token-errado", sindico).getStatusCode()).isEqualTo(HttpStatus.FORBIDDEN);
+        // e o usuário de fato não foi criado
+        assertThat(restTemplate.postForEntity("/api/auth/login", new LoginRequest(sindico.email(), sindico.senha()), String.class)
                 .getStatusCode()).isEqualTo(HttpStatus.UNAUTHORIZED);
     }
 
