@@ -14,6 +14,10 @@ Python/pandas. As duas foram implementadas e verificadas hoje, junto com
 dois ajustes no Serial do firmware para a bancada. As correções de texto do
 artigo ficaram em `docs/paridade-artigo-19-10.md`, com redação sugerida.
 
+> **20/10:** as correções foram aplicadas no Overleaf e o relatório
+> `paridade-artigo-19-10.md` foi removido do repositório; a seção 1 abaixo
+> resume os achados. Ver `docs/stack-20-10.md`.
+
 ## 1. Paridade artigo × repositório
 
 Relatório completo: `docs/paridade-artigo-19-10.md`. Principais achados:

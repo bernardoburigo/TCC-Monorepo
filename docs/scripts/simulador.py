@@ -21,6 +21,14 @@ Uso típico:
     python3 docs/scripts/simulador.py rodar
     python3 docs/scripts/simulador.py rodar --perfil 103=vazamento
 
+Sensores virtuais no MESMO condomínio de um síndico que já existe (ex.: o do sensor
+real em produção, para o painel mostrar o apartamento real ao lado dos virtuais):
+    python3 docs/scripts/simulador.py --estado docs/scripts/.simulador-estado-prod.json \
+        provisionar --api https://apitcc.bernardoburigo.com.br \
+        --sindico-email sindico@bernardoburigo.com.br --admin-token "$TCC_ADMIN_TOKEN"
+  A senha do síndico vem de TCC_SINDICO_SENHA ou é pedida no terminal, e não é gravada
+  no arquivo de estado. `historico`/`rodar` com o mesmo --estado usam esses sensores.
+
 Limitações conhecidas (a Sprint 5 evolui este script):
   - `historico` usa janelas de 60 s por padrão (o firmware real usa 5 s) para não
     precisar de dezenas de milhares de POSTs; o volume total é equivalente, a
@@ -29,6 +37,7 @@ Limitações conhecidas (a Sprint 5 evolui este script):
 """
 
 import argparse
+import getpass
 import json
 import math
 import os
@@ -117,22 +126,31 @@ def cmd_provisionar(args):
     estado = json.loads(caminho.read_text()) if caminho.exists() else {}
     admin = {"X-Admin-Token": args.admin_token}  # o registro de usuários não é público
 
-    # síndico + condomínio (o registro do síndico cria o condomínio)
-    status, corpo = http("POST", f"{api}/api/auth/registrar", {
-        **SINDICO, "role": "SINDICO", "nomeCondominio": NOME_CONDOMINIO}, headers=admin)
-    if status == 201:
-        print(f"síndico criado: {SINDICO['email']}")
+    if args.sindico_email:
+        # síndico que já existe (ex.: o do sensor real): os aptos virtuais entram no condomínio dele
+        senha = os.environ.get("TCC_SINDICO_SENHA") or getpass.getpass(f"senha de {args.sindico_email}: ")
+        sindico = {"email": args.sindico_email, "senha": senha}
+        print(f"usando o síndico existente: {args.sindico_email}")
     else:
-        exigir(status, (409,), "registrar síndico", corpo)  # 409 = já existe
-        print(f"síndico já existia: {SINDICO['email']}")
-    jwt = login(api, SINDICO)
+        # síndico + condomínio simulados (o registro do síndico cria o condomínio)
+        sindico = SINDICO
+        status, corpo = http("POST", f"{api}/api/auth/registrar", {
+            **SINDICO, "role": "SINDICO", "nomeCondominio": NOME_CONDOMINIO}, headers=admin)
+        if status == 201:
+            print(f"síndico criado: {SINDICO['email']}")
+        else:
+            exigir(status, (409,), "registrar síndico", corpo)  # 409 = já existe
+            print(f"síndico já existia: {SINDICO['email']}")
+    jwt = login(api, sindico)
     auth = {"Authorization": f"Bearer {jwt}"}
 
     status, condominios = http("GET", f"{api}/api/condominios", headers=auth)
     exigir(status, (200,), "listar condomínios", condominios)
     if not condominios:
-        raise ErroSimulador("o síndico simulado não tem condomínio")
+        raise ErroSimulador(f"o síndico {sindico['email']} não tem condomínio")
     condominio = condominios[0]
+    if len(condominios) > 1:
+        print(f"aviso: o síndico tem {len(condominios)} condomínios; usando o primeiro, \"{condominio['nome']}\"")
 
     status, existentes = http("GET", f"{api}/api/apartamentos?condominioId={condominio['id']}", headers=auth)
     exigir(status, (200,), "listar apartamentos", existentes)
@@ -170,14 +188,20 @@ def cmd_provisionar(args):
             print(f"proprietário criado: {PROPRIETARIO['email']} (apartamento {sensores[0]['numero']})")
         else:
             exigir(status, (409,), "registrar proprietário", corpo)
-            print(f"proprietário já existia: {PROPRIETARIO['email']}")
+            # 409: a conta já existe e mantém os apartamentos de quando foi criada (o registro
+            # não revincula) — pode não ser o apartamento deste condomínio
+            print(f"proprietário já existia: {PROPRIETARIO['email']} — continua com os apartamentos "
+                  f"de quando foi criado (confira em /api/me/apartamentos)")
 
     novo = {"api": api, "condominio": {"id": condominio["id"], "nome": condominio["nome"]},
-            "sindico": SINDICO, "proprietario": {**PROPRIETARIO, "numero": sensores[0]["numero"]},
+            # senha de síndico real nunca vai para o arquivo de estado
+            "sindico": SINDICO if not args.sindico_email else {"email": args.sindico_email},
+            "proprietario": {**PROPRIETARIO, "numero": sensores[0]["numero"]},
             "sensores": sensores}
     salvar_estado(caminho, novo)
-    print(f"\nestado salvo em {caminho}")
-    print(f"  síndico:      {SINDICO['email']} / {SINDICO['senha']}")
+    print(f"\nestado salvo em {caminho} (condomínio \"{condominio['nome']}\")")
+    print(f"  síndico:      {SINDICO['email']} / {SINDICO['senha']}" if not args.sindico_email
+          else f"  síndico:      {args.sindico_email} (existente)")
     print(f"  proprietário: {PROPRIETARIO['email']} / {PROPRIETARIO['senha']} (só o apartamento {sensores[0]['numero']})")
 
 
@@ -363,6 +387,9 @@ def main():
     p.add_argument("--apartamentos", type=int, default=3)
     p.add_argument("--admin-token", default=os.environ.get("TCC_ADMIN_TOKEN", "dev-admin-token"),
                    help="X-Admin-Token do registro (APP_REGISTRO_ADMIN_TOKEN do backend); padrão: env TCC_ADMIN_TOKEN ou o valor de dev")
+    p.add_argument("--sindico-email", default=None,
+                   help="usa este síndico JÁ EXISTENTE (e o condomínio dele) em vez de criar o síndico simulado; "
+                        "senha via env TCC_SINDICO_SENHA ou pedida no terminal")
     p.set_defaults(func=cmd_provisionar)
 
     for nome, ajuda, func in (("historico", "gera histórico (backfill) até agora", cmd_historico),

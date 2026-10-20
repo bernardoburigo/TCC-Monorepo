@@ -1,0 +1,3 @@
+# Uma linha por ensaio de bancada. pulsos_* = `pulsos_total` do Serial antes/depois do ensaio.
+# campanha: calibracao | validacao   faixa: baixa | media | alta   (linhas com # são ignoradas)
+campanha,faixa,repeticao,pulsos_antes,pulsos_depois,volume_real_l,tempo_s,observacao

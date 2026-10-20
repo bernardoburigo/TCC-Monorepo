@@ -5,8 +5,8 @@ do [`CLAUDE.md`](../CLAUDE.md) (fonte da verdade para datas e critérios) e
 os diários detalhados em `docs/stack-DD-MM.md`. Atualizar ao fechar cada
 sprint ou pendência relevante.
 
-**Última atualização:** 19/10/2026.
-**Prazo de entrega do artigo:** 09/11/2026 (faltam ~21 dias). **Maior
+**Última atualização:** 20/10/2026.
+**Prazo de entrega do artigo:** 09/11/2026 (faltam ~20 dias). **Maior
 risco agora é tempo, não hardware:** o ESP32 chegou e o pipeline ponta a
 ponta já funciona (15/10) — falta calibração formal, queda de rede,
 multi-apartamento e os 120 ensaios de bancada da Sprint 6.
@@ -86,9 +86,10 @@ multi-apartamento e os 120 ensaios de bancada da Sprint 6.
 
 ### Sprint 5 — Multi-apartamento ⬜
 - [ ] Réplica física (1-2 kits ESP32 + YF-S201 extras) e/ou
-- [ ] Simulador formal de múltiplos sensores virtuais rodando junto do
-      sensor real (o `docs/scripts/simulador.py` já cobre o básico; falta
-      o cenário formal lado a lado com dado real)
+- [x] Simulador cria os sensores virtuais no condomínio de um síndico
+      existente (`provisionar --sindico-email`, 20/10) — permite o painel com
+      o apto 201 (real) ao lado dos virtuais
+- [ ] Rodar esse cenário em produção (Etapa 1 do roteiro abaixo)
 - [ ] Dashboard mostrando 2+ apartamentos com consumos distintos e isolados
 
 ### Sprint 6 — Testes de bancada ⬜
@@ -99,8 +100,8 @@ calibração + 30 de validação) = **120 ensaios**.
       do firmware, registro de t_exib no app (`EXPO_PUBLIC_REGISTRAR_LATENCIA`) e
       scripts `docs/scripts/analise/` (calibração, entrega, latência) — ver
       `docs/scripts/analise/README.md`
-- [ ] **Decidir antes de calibrar:** manter o YF-S201 em 3,3 V (e declarar no
-      artigo) ou passar para 5 V — ver `docs/paridade-artigo-19-10.md`, seção 3.1
+- [x] Tensão do YF-S201 decidida (20/10): **3,3 V da placa**, declarado e
+      justificado no §2.2 do artigo — calibração e validação nessa condição
 - [ ] Gravar o firmware novo no ESP32 (o do hardware ainda é o de 16/10, sem
       `pulsos_total`)
 - [ ] Montar a bancada (reservatório, registro, mangueira, recipiente
@@ -130,22 +131,39 @@ calibração + 30 de validação) = **120 ensaios**.
 
 ## Pendências específicas para o artigo final
 
-Achadas na validação de paridade de 19/10 entre o PDF e o repositório —
-detalhe completo e **redação sugerida** em `docs/paridade-artigo-19-10.md`.
-Os 4 itens da validação de 09/10 (alerta, "oito migrações", "5 s", "oito
-etapas") já estão corrigidos no PDF.
+Validação de paridade de 19/10 (achados em `docs/stack-19-10.md`, seção 1):
+**todas as correções foram aplicadas no Overleaf em 20/10** — fila com
+reenvio (§2.2, §3.4, §4), TE por ciclo de boot + entregas pela fila (§2.6.3,
+Tabela 6), Tabela 1 com `X-Admin-Token`, NVS/portal, 23 testes e 80,4% de
+flash, 30 min/15 s, servidor doméstico + Cloudflare + Vercel, polling 5/10 s,
+3,3 V justificado, +5 s da janela e limitações de segurança.
 
-- [ ] **Retransmissão (crítico):** §2.2, §3.4 e §4 dizem que o firmware não
-      retransmite; ele tem fila de 200 leituras com reenvio desde a Sprint 3.
-      Reescrever os três trechos e tirar "retransmissão" dos trabalhos futuros
-- [ ] Taxa de entrega por ciclo de boot + entregas pela fila (§2.6.3, Tabela 6)
-- [ ] Tabela 1: `registrar` exige `X-Admin-Token` (não é pública)
-- [ ] §2.2: constante de calibração na NVS/portal, não em arquivo
-- [ ] §3.1: 23 testes nativos; Flash 80,4% / RAM 16,6%
-- [ ] Preencher já: 30 min (§2.3), servidor doméstico + Cloudflare Tunnel
-      (§2.4; Vercel só depois de publicar o app), 5 s/10 s (§2.5), "um" conjunto e "Python" (§2.6)
-- [ ] Declarar a tensão do sensor, o atraso de até 5 s da janela e as
-      limitações de segurança (HTTPS sem validar certificado, JWT em localStorage)
+- [ ] **Antes dos ensaios:** fixar o critério de aceitação de L_tot (§2.6.3,
+      "média de até X s" + justificativa; sugestão: ≤ 10 s = janela de 5 s +
+      polling de 5 s) — o texto diz que os critérios foram definidos antes
+- [ ] O texto agora pressupõe o ESP32 enviando por HTTPS via Cloudflare
+      (Figura 1, §2.1) e o painel com o sensor real ao lado dos virtuais
+      (§3.1) — ver o roteiro abaixo
+
+## Roteiro até a entrega (definido em 20/10)
+
+- **Etapa 0 (20–21/10):** commitar scripts + PDF; fixar o critério de
+  L_tot; gravar o firmware novo; portal → `https://apitcc.bernardoburigo.com.br`;
+  conferir o apto 201 (REAL) no app da Vercel → Figura 2(b).
+- **Etapa 1 (22–24/10):** `simulador.py provisionar --sindico-email
+  sindico@bernardoburigo.com.br` (aptos virtuais no condomínio real), `historico`
+  + `rodar` no servidor; isolamento/403, alerta com `--perfil 103=vazamento`
+  → Figuras 2(a) e 2(c) e os "X s"/"N" do §3.1.
+- **Etapa 2 (25/10–02/11):** bancada — calibração (30) → K no portal →
+  validação (90); rede estável 60 min + 3 quedas de 120 s; latência pelo app da
+  Vercel com `EXPO_PUBLIC_REGISTRAR_LATENCIA=true` (CORS de produção só libera
+  a Vercel); tudo em `docs/resultados/`. Roteiro em `docs/scripts/analise/README.md`.
+- **Etapa 3 (03–06/11):** preencher Tabelas 2–8, Figuras 1–4, resumo, §3 e
+  conclusão; enviar ao orientador até ~06/11.
+- **Etapa 4 (07–09/11):** correções, revisão final, entrega; desligar o flag de
+  latência na Vercel.
+- **Se apertar:** reduzir a Etapa 1 ao mínimo e as repetições de validação
+  (ex.: 20/faixa) — nunca cortar faixas de vazão.
 
 ## Placeholders do artigo que dependem da Sprint 6 (dados de bancada)
 
