@@ -5,8 +5,9 @@ import { Text, View } from 'react-native';
 import { mensagemDeErro } from '@/api/client';
 import { AlertaBanner } from '@/components/AlertaBanner';
 import { VazaoChart } from '@/components/VazaoChart';
-import { Cartao, EstadoCarregando, EstadoErro, EstadoVazio, SeloReal, SeloSimulado, StatusSelo, Tela, Titulo } from '@/components/ui';
+import { Botao, Cartao, EstadoCarregando, EstadoErro, EstadoVazio, SeloReal, SeloSimulado, StatusSelo, Tela, Titulo } from '@/components/ui';
 import { useAgora } from '@/hooks/useAgora';
+import { useRegistroLatencia } from '@/hooks/useRegistroLatencia';
 import { JANELA_AO_VIVO_MIN, useAlertas, useLeiturasRecentes, useStatusDoSensor } from '@/hooks/queries';
 import { formatarHora, formatarVazao, tempoDesde } from '@/lib/format';
 import { calcularVazoes } from '@/lib/vazao';
@@ -28,6 +29,7 @@ export default function DetalheDoSensor() {
   const status = useStatusDoSensor(id);
   const leituras = useLeiturasRecentes(id);
   const alertas = useAlertas(status.data?.apartamentoId);
+  const latencia = useRegistroLatencia(id, leituras.data);
 
   const pontos = useMemo(() => (leituras.data ? calcularVazoes(leituras.data) : []), [leituras.data]);
   const ultimaLeitura = leituras.data && leituras.data.length > 0 ? leituras.data[leituras.data.length - 1] : null;
@@ -142,6 +144,22 @@ export default function DetalheDoSensor() {
           valor={atrasoMs === null ? '—' : atrasoMs >= 1000 ? `${(atrasoMs / 1000).toFixed(1).replace('.', ',')} s` : `${Math.max(atrasoMs, 0)} ms`}
         />
         <Linha rotulo="Leituras na janela" valor={leituras.data ? String(leituras.data.length) : '—'} />
+        {latencia.ativo ? (
+          <>
+            <Linha rotulo="Exibições registradas (latência)" testID="latencia-total" valor={String(latencia.total)} />
+            {latencia.podeExportar ? (
+              <View className="mt-3 items-start">
+                <Botao
+                  titulo="Exportar latência (CSV)"
+                  variante="secundario"
+                  desabilitado={latencia.total === 0}
+                  onPress={latencia.exportar}
+                  testID="exportar-latencia"
+                />
+              </View>
+            ) : null}
+          </>
+        ) : null}
       </Cartao>
     </Tela>
   );

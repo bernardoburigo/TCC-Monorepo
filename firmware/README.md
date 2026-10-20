@@ -98,10 +98,17 @@ porta liberada no `firewalld` do PC (`sudo firewall-cmd --add-port=8080/tcp`).
 
 ### Calibração (pendente — Sprint 1)
 
-Escoe um volume conhecido (proveta + cronômetro), compare com o `volume_total`
-do Serial e recalcule `pulsos_por_litro = pulsos_contados / litros_reais`.
+Escoe um volume conhecido (proveta + cronômetro) e anote o `pulsos_total` do
+Serial **antes e depois** do ensaio: a diferença são os pulsos do ensaio,
+independentes do K gravado na NVS (o `volume_total` já vem convertido pelo K
+atual). Recalcule `pulsos_por_litro = pulsos_contados / litros_reais` — na
+Sprint 6, com `docs/scripts/analise/calibracao.py` (Equação 2 do artigo).
 Grave o novo valor pelo portal (campo *Pulsos por litro*); não é preciso
 recompilar. `PULSES_PER_LITER` em `config.h` é só o valor padrão (datasheet).
+
+Para a taxa de entrega, cada leitura emitida aparece no Serial como
+`[FILA] seq=N enfileirada` (enviada ou não) — a primeira e a última dão o
+N_esp da Equação 4, por boot (a `sequencia` zera quando o ESP32 reinicia).
 
 ### Antes de ligar o sensor
 

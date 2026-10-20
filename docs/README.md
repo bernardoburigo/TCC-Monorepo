@@ -7,6 +7,11 @@ validação do TCC, e o histórico de avanço do desenvolvimento.
 **Conteúdo:**
 - `scripts/simulador.py` — simulador de sensores (dados **SIMULADOS**), usado no
   Sprint 4 enquanto o ESP32 não está disponível. Ver o cabeçalho do script.
+- `scripts/analise/` — scripts Python/pandas da Sprint 6 (calibração/EPM/CV,
+  taxa de entrega, latência) que geram as Tabelas 3–7 e a Figura 4 do
+  artigo. Ver o `README.md` da pasta.
+- `paridade-artigo-19-10.md` — comparação do artigo com o repositório, com
+  as correções de texto sugeridas.
 - `screenshots/` — capturas do app geradas pelos testes e2e (dados simulados).
 - `progresso.md` — checklist vivo de progresso por sprint (o que já foi
   concluído e o que falta até a entrega do artigo); atualizar ao fechar
@@ -20,9 +25,8 @@ validação do TCC, e o histórico de avanço do desenvolvimento.
 **Conteúdo previsto:**
 - Diagramas de arquitetura e modelagem de domínio (ver seção 2 do
   `CLAUDE.md`).
-- CSVs e notebooks/scripts para Erro Absoluto (EA), Erro Percentual Médio
-  (EPM), desvio padrão, tempo de atualização e taxa de entrega (ver seção
-  7 do `CLAUDE.md`).
+- `resultados/` — CSVs da bancada e as tabelas/figuras geradas pelos
+  scripts de `scripts/analise/` (Sprint 6).
 - Material de apoio para a redação final e apresentação da defesa.
 
 ## Histórico de avanço (`stack-DD-MM.md`)

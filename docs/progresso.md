@@ -5,8 +5,8 @@ do [`CLAUDE.md`](../CLAUDE.md) (fonte da verdade para datas e critérios) e
 os diários detalhados em `docs/stack-DD-MM.md`. Atualizar ao fechar cada
 sprint ou pendência relevante.
 
-**Última atualização:** 16/10/2026.
-**Prazo de entrega do artigo:** 09/11/2026 (faltam ~25 dias). **Maior
+**Última atualização:** 19/10/2026.
+**Prazo de entrega do artigo:** 09/11/2026 (faltam ~21 dias). **Maior
 risco agora é tempo, não hardware:** o ESP32 chegou e o pipeline ponta a
 ponta já funciona (15/10) — falta calibração formal, queda de rede,
 multi-apartamento e os 120 ensaios de bancada da Sprint 6.
@@ -95,14 +95,22 @@ multi-apartamento e os 120 ensaios de bancada da Sprint 6.
 Delineamento já fechado no artigo final (`docs/TCC_Bernardo_Goulart_Búrigo.pdf`,
 Seção 2.6): 3 faixas de vazão (baixa/média/alta) × (10 repetições de
 calibração + 30 de validação) = **120 ensaios**.
+- [x] Ferramental de medição (19/10): `pulsos_total` e `[FILA] seq=N` no Serial
+      do firmware, registro de t_exib no app (`EXPO_PUBLIC_REGISTRAR_LATENCIA`) e
+      scripts `docs/scripts/analise/` (calibração, entrega, latência) — ver
+      `docs/scripts/analise/README.md`
+- [ ] **Decidir antes de calibrar:** manter o YF-S201 em 3,3 V (e declarar no
+      artigo) ou passar para 5 V — ver `docs/paridade-artigo-19-10.md`, seção 3.1
+- [ ] Gravar o firmware novo no ESP32 (o do hardware ainda é o de 16/10, sem
+      `pulsos_total`)
 - [ ] Montar a bancada (reservatório, registro, mangueira, recipiente
       graduado, cronômetro)
 - [ ] Campanha de calibração (10 repetições/faixa) — calcular o fator `K`
       ajustado (Equação 2 do artigo)
 - [ ] Campanha de validação (30 repetições/faixa) com o `K` calibrado
 - [ ] Calcular EA, EPM, desvio padrão/CV, taxa de entrega (rede estável +
-      falhas induzidas), latência (ingestão + exibição) — processar em
-      Python/pandas
+      falhas induzidas), latência (ingestão + exibição) — rodar os scripts de
+      `docs/scripts/analise/`
 - [ ] Gerar as Tabelas 3–8 e a Figura 4 do artigo com os números reais
 
 ### Sprint 7 — Fechamento do artigo ⬜
@@ -122,24 +130,22 @@ calibração + 30 de validação) = **120 ensaios**.
 
 ## Pendências específicas para o artigo final
 
-Achadas na validação de paridade entre `docs/TCC_Bernardo_Goulart_Búrigo.pdf`
-e o `CLAUDE.md` (09/10/2026) — detalhe completo em `docs/stack-09-10.md`,
-seção 1. Não são placeholders em vermelho, são ajustes de texto:
+Achadas na validação de paridade de 19/10 entre o PDF e o repositório —
+detalhe completo e **redação sugerida** em `docs/paridade-artigo-19-10.md`.
+Os 4 itens da validação de 09/10 (alerta, "oito migrações", "5 s", "oito
+etapas") já estão corrigidos no PDF.
 
-- [ ] **Alerta de vazamento:** a Conclusão do artigo (p.17) diz "não há
-      alertas automáticos" e lista o alerta como trabalho futuro, mas ele
-      já está implementado e testado desde a Sprint 4. Decidir: voltar a
-      mencioná-lo no corpo do artigo (Seção 2.2/2.5, Tabela 9, Conclusão)
-      ou manter a omissão deliberadamente — se mantida, ajustar a frase da
-      limitação para não contradizer o próprio sistema.
-- [ ] **Contagem de migrações:** o artigo (p.7) diz "sete migrações"
-      Flyway; o repositório tem 8 (`V1`–`V8`, `V8` da Sprint 4). Corrigir
-      para "oito".
-- [ ] *(opcional, menor)* "a cada N segundos" (p.7) → considerar trocar
-      por "5 s" (valor fixo desde a Sprint 3).
-- [ ] *(opcional, menor)* "sete sprints" (p.6, resumo da metodologia) vs.
-      as 8 da tabela do `CLAUDE.md` (Sprint 0 a 7) — confirmar se é
-      intencional (não contar a Sprint 0 como sprint "de desenvolvimento").
+- [ ] **Retransmissão (crítico):** §2.2, §3.4 e §4 dizem que o firmware não
+      retransmite; ele tem fila de 200 leituras com reenvio desde a Sprint 3.
+      Reescrever os três trechos e tirar "retransmissão" dos trabalhos futuros
+- [ ] Taxa de entrega por ciclo de boot + entregas pela fila (§2.6.3, Tabela 6)
+- [ ] Tabela 1: `registrar` exige `X-Admin-Token` (não é pública)
+- [ ] §2.2: constante de calibração na NVS/portal, não em arquivo
+- [ ] §3.1: 23 testes nativos; Flash 80,4% / RAM 16,6%
+- [ ] Preencher já: 30 min (§2.3), servidor doméstico + Cloudflare Tunnel
+      (§2.4; Vercel só depois de publicar o app), 5 s/10 s (§2.5), "um" conjunto e "Python" (§2.6)
+- [ ] Declarar a tensão do sensor, o atraso de até 5 s da janela e as
+      limitações de segurança (HTTPS sem validar certificado, JWT em localStorage)
 
 ## Placeholders do artigo que dependem da Sprint 6 (dados de bancada)
 

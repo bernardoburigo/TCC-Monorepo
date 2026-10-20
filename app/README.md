@@ -82,11 +82,30 @@ Para remover: apague a pasta `src/api/mock/` e reverta esse trecho de
 
 CORS não se aplica ao celular (é restrição só de navegador).
 
+### Medir a latência de exibição (Sprint 6)
+
+O artigo (Seção 2.6.3, Equação 5) decompõe a latência em `t_cap` (ESP32/NTP,
+`timestampLeitura`), `t_pers` (backend, `recebidoEm`) e `t_exib` (instante em que
+a leitura apareceu na tela). Para registrar o `t_exib`:
+
+1. `.env.local` com `EXPO_PUBLIC_REGISTRAR_LATENCIA=true` e `npm run web`.
+2. Abrir a tela do sensor e **deixar a aba visível** durante a coleta (o polling
+   pausa com a aba em segundo plano, o que inflaria a latência).
+3. As leituras da primeira carga (histórico de 10 min) não entram; cada leitura
+   que chega depois é registrada uma vez, com o relógio do dispositivo — que
+   precisa estar sincronizado por NTP, como o ESP32 e o servidor.
+4. "Exportar latência (CSV)" baixa o arquivo lido por
+   `docs/scripts/analise/latencia.py`. O buffer fica em memória: recarregar a
+   página zera o registro.
+
+Lógica em `src/lib/latencia.ts` (pura, com testes Jest) e
+`src/hooks/useRegistroLatencia.ts`.
+
 ## Testes
 
 ```bash
 npm run typecheck   # tsc --noEmit
-npm test            # Jest: 33 testes das funções puras (vazão, formatação, séries, eixos, períodos)
+npm test            # Jest: 46 testes (funções puras: vazão, formatação, séries, eixos, períodos, latência; modo mock)
 ./e2e/run.sh        # 31 testes e2e em navegador headless (+1 opcional, ver abaixo)
 ```
 

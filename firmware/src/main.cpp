@@ -18,6 +18,9 @@ unsigned long lastSampleMs = 0;
 // Volume acumulado desde o boot: SÓ para o Serial/calibração. Nunca é enviado —
 // o backend soma volume_ml_estimado, então cada leitura carrega apenas o delta da janela.
 double totalVolumeMl = 0.0;
+// Pulsos acumulados desde o boot, também só para o Serial: na bancada (Sprint 6) o volume
+// lido de um ensaio vem da diferença deste contador antes/depois, sem depender do K da NVS.
+unsigned long totalPulses = 0;
 
 // Janela de envio (POST_WINDOW_MS): soma os pulsos de várias amostras.
 unsigned long postWindowStartMs = 0;
@@ -45,6 +48,9 @@ void closePostWindowIfDue(unsigned long now) {
 
     FlowReading window = calculateFlow(postWindowPulses, now - postWindowStartMs, deviceConfig.pulsesPerLiter);
     Leitura leitura = {Network::nowEpochMs(), postWindowPulses, window.volumeMl, nextSequence++};
+    // Toda sequência EMITIDA aparece no Serial (enviada ou não): N_esp da taxa de entrega.
+    Serial.printf("[FILA] seq=%lu enfileirada (pulsos=%lu)\n", static_cast<unsigned long>(leitura.sequencia),
+                  static_cast<unsigned long>(leitura.pulsos));
     if (sendQueue.push(leitura)) {
         Serial.printf("[FILA] cheia: leitura mais antiga descartada (total descartadas=%lu)\n",
                       static_cast<unsigned long>(sendQueue.droppedCount()));
@@ -65,11 +71,12 @@ void sampleOnce(unsigned long now) {
 
     FlowReading reading = calculateFlow(pulses, elapsedMs, deviceConfig.pulsesPerLiter);
     totalVolumeMl += reading.volumeMl;
+    totalPulses += pulses;
     postWindowPulses += pulses;
 
     Serial.printf(
-        "pulsos=%lu vazao=%.2f L/min volume_intervalo=%.2f mL volume_total=%.2f mL | fila=%u wifi=%s hora=%s\n",
-        pulses, reading.flowLPerMin, reading.volumeMl, totalVolumeMl,
+        "pulsos=%lu pulsos_total=%lu vazao=%.2f L/min volume_intervalo=%.2f mL volume_total=%.2f mL | fila=%u wifi=%s hora=%s\n",
+        pulses, totalPulses, reading.flowLPerMin, reading.volumeMl, totalVolumeMl,
         static_cast<unsigned>(sendQueue.size()),
         Network::connected() ? "ok" : "--",
         Network::timeSynced() ? "ok" : "--");
