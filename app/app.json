@@ -38,6 +38,13 @@
     ],
     "experiments": {
       "typedRoutes": true
-    }
+    },
+    "extra": {
+      "router": {},
+      "eas": {
+        "projectId": "13265f4f-195c-4417-9977-b0479b72fca0"
+      }
+    },
+    "owner": "bernardoburigo"
   }
 }
