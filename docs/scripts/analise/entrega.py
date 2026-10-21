@@ -33,6 +33,9 @@ import pandas as pd
 
 RE_ENFILEIRADA = re.compile(r"\[FILA\] seq=(\d+) enfileirada")
 RE_DUPLICADA = re.compile(r"\[POST\] seq=(\d+) -> 409\b")
+# prefixo de hora (UTC) gravado pelo serial_log.py em cada linha
+RE_HORA = re.compile(r"^(\d{4}-\d{2}-\d{2}T\S+Z) ")
+RE_BANNER = re.compile(r"firmware YF-S201")
 
 
 def segmentar(sequencias):
@@ -49,13 +52,28 @@ def segmentar(sequencias):
 
 
 def ler_serial(caminho):
-    emitidas, duplicadas = [], 0
-    for linha in Path(caminho).read_text(errors="replace").splitlines():
+    """Sequências emitidas por boot, duplicadas e a janela de horas do log (se tiver prefixo)."""
+    linhas = Path(caminho).read_text(errors="replace").splitlines()
+    # Abrir a porta reinicia o ESP32, mas linhas do boot ANTERIOR ainda no buffer da serial
+    # chegam antes do banner: o log útil começa no primeiro banner de boot.
+    banners = [i for i, linha in enumerate(linhas) if RE_BANNER.search(linha)]
+    if banners:
+        linhas = linhas[banners[0]:]
+
+    emitidas, duplicadas, horas, primeira_fila = [], 0, [], None
+    for linha in linhas:
+        hora = pd.Timestamp(h.group(1)) if (h := RE_HORA.match(linha)) else None
+        if hora is not None:
+            horas.append(hora)
         if m := RE_ENFILEIRADA.search(linha):
             emitidas.append(int(m.group(1)))
+            if primeira_fila is None:
+                primeira_fila = hora
         elif RE_DUPLICADA.search(linha):
             duplicadas += 1
-    return segmentar(emitidas), duplicadas
+    # a janela começa na 1ª leitura enfileirada (nenhuma leitura deste boot é anterior a ela)
+    janela = (primeira_fila or min(horas), max(horas)) if horas else None
+    return segmentar(emitidas), duplicadas, janela
 
 
 def main():
@@ -78,6 +96,14 @@ def main():
         df = df[df["sensor_id"] == args.sensor]
     elif df["sensor_id"].nunique() > 1:
         sys.exit("o CSV tem mais de um sensor: informe --sensor")
+    serial_lido = ler_serial(args.serial) if args.serial else None
+    if serial_lido and serial_lido[2] and not (args.desde or args.ate):
+        # log do serial_log.py: o recorte do banco é a própria janela do log (com 2 s de folga),
+        # para não pegar o boot seguinte (abrir/fechar a porta reinicia o ESP32)
+        inicio, fim = serial_lido[2]
+        args.desde = (inicio - pd.Timedelta(seconds=2)).isoformat()
+        args.ate = (fim + pd.Timedelta(seconds=2)).isoformat()
+        print(f"janela deduzida do log: {args.desde} .. {args.ate}")
     if args.desde:
         df = df[df["timestamp_leitura"] >= pd.Timestamp(args.desde)]
     if args.ate:
@@ -90,7 +116,7 @@ def main():
 
     duplicadas = None
     if args.serial:
-        seg_serial, duplicadas = ler_serial(args.serial)
+        seg_serial, duplicadas, _ = serial_lido
         if len(seg_serial) != len(seg_banco):
             sys.exit(f"o log tem {len(seg_serial)} boot(s) e o banco {len(seg_banco)}: recorte o log/--desde/--ate "
                      "para cobrir exatamente a mesma condição")

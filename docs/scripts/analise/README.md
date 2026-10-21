@@ -9,6 +9,8 @@ Figura 4 do artigo (Seção 2.6.3). Todos recebem CSV e gravam CSV/PNG em
 | `calibracao.py` | K (Eq. 2), EA, e_i, EPM, viés, R, CV (Eq. 3) | `ensaios.csv` (planilha da bancada) | Tabelas 3, 4, 5 e Figura 4 |
 | `entrega.py` | TE (Eq. 4) + entregas pela fila | `leituras.csv` (banco) + log do Serial | uma linha da Tabela 6 por condição |
 | `latencia.py` | L_ing, L_exib, L_tot (Eq. 5) | CSV exportado pelo app | Tabela 7 |
+| `exportar_leituras.py` | — | API (`/api/sensores/{id}/leituras`) | CSV de leituras para o `entrega.py` |
+| `serial_log.py` | — | porta serial do ESP32 | log com hora do PC por linha (insumo do `entrega.py` e da bancada) |
 
 Os cabeçalhos esperados estão em `modelos/`. Os dados reais e os resultados
 podem ir para `docs/resultados/` (versionados, insumo do artigo);
@@ -42,13 +44,28 @@ força um K na validação (ex.: o que foi de fato gravado no ESP32).
 ## 2. Taxa de entrega — `entrega.py`
 
 Durante cada condição (rede estável por T minutos; roteador desligado X s em
-N ocasiões), grave o Serial em arquivo:
+N ocasiões), grave o Serial em arquivo, **um arquivo por condição**:
 
 ```bash
-cd firmware && pio device monitor | tee ../docs/resultados/serial-estavel.log
+python3 docs/scripts/analise/serial_log.py docs/resultados/serial-estavel.log --minutos 60
 ```
 
-Depois exporte as leituras persistidas do mesmo intervalo (no servidor):
+`serial_log.py` prefixa cada linha com a hora do PC (UTC) e roda sem terminal
+interativo. **Abrir a porta reinicia o ESP32** (o Linux ativa DTR/RTS ao abrir
+o dispositivo), então cada log cobre exatamente um boot — e o `entrega.py` usa
+a primeira e a última hora do log como recorte do banco (com 2 s de folga),
+deixando de fora o boot anterior e o que começa quando a porta fecha.
+
+Depois exporte as leituras persistidas. Pela API (de qualquer máquina, até 4 h
+depois do teste):
+
+```bash
+python3 docs/scripts/analise/exportar_leituras.py docs/resultados/leituras-estavel.csv \
+   --sensor <uuid-do-sensor> --minutos 120
+```
+
+Ou direto no banco (no servidor). O recorte por horário pode ser folgado — o
+fino é feito pelo log:
 
 ```bash
 docker exec tcc-db psql -U tcc -d tcc_telemetria -c "\copy (
@@ -67,7 +84,8 @@ py docs/scripts/analise/entrega.py docs/resultados/leituras-estavel.csv \
 - N_esp vem das linhas `[FILA] seq=N enfileirada` do log (inclui o que se
   perdeu no fim); N_rec, das linhas do banco (409 nunca é persistido).
 - A `sequencia` zera a cada reboot do ESP32: o script separa por boot, e o
-  log e o recorte do banco precisam cobrir os mesmos boots.
+  log e o recorte do banco precisam cobrir os mesmos boots (automático com
+  logs do `serial_log.py`; com `--desde/--ate` explícitos, o recorte é seu).
 - Com a fila de reenvio do firmware (200 leituras, ~16 min), quedas curtas
   tendem a TE ≈ 100%: o efeito aparece em `entregues_pela_fila` (atraso acima
   de `--limiar-atraso`, padrão 10 s) e em `atraso_max_s`. Perda só ocorre se
@@ -95,7 +113,8 @@ artigo) e o firmware de 19/10 ou mais novo (o Serial precisa mostrar
 
 **Antes de começar**
 1. Serial gravado em arquivo durante toda a sessão:
-   `cd firmware && pio device monitor | tee ../docs/resultados/serial-DD-MM.log`.
+   `python3 docs/scripts/analise/serial_log.py docs/resultados/serial-bancada-DD-MM.log --eco`
+   (abrir a porta reinicia o ESP32: começar o log antes do primeiro ensaio).
 2. Conferir no Serial `wifi=ok hora=ok` e POSTs com `-> 201`.
 3. Purgar a tubulação (deixar correr até sair o ar) e marcar no registro as
    aberturas de cada faixa. Medir uma vez a vazão de cada marca e ajustar as

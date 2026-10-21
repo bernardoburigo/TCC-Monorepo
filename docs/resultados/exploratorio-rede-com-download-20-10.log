@@ -1,0 +1,913 @@
+2026-10-21T00:31:52.438Z sos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL v wifi=ok hora=ok
+2026-10-21T00:31:52.438Z [FILA] seq=30 enfileirada (pulsos=0)
+2026-10-21T00:31:52.450Z ets Jul 29 2019 12:21:46
+2026-10-21T00:31:52.450Z rst:0x1 (POWERON_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+2026-10-21T00:31:52.450Z configsip: 0, SPIWP:0xee
+2026-10-21T00:31:52.461Z clk_drv:0x00,q_drv:0x00,d_drv:0x00,cs0_drv:0x00,hd_drv:0x00,wp_drv:0x00
+2026-10-21T00:31:52.461Z mode:DIO, clock div:2
+2026-10-21T00:31:52.461Z load:0x3fff0030,len:1184
+2026-10-21T00:31:52.466Z load:0x40078000,len:13232
+2026-10-21T00:31:52.466Z load:0x40080400,len:3028
+2026-10-21T00:31:52.466Z entry 0x400805e4
+2026-10-21T00:31:52.930Z Sprint 3 - firmware YF-S201 (Wi-Fi + NTP + POST periodico para a API)
+2026-10-21T00:31:53.032Z [WiFi] conectando (portal 'TCC-Sensor-Setup' abre se não houver rede salva)...
+2026-10-21T00:31:53.033Z *wm:AutoConnect
+2026-10-21T00:31:53.033Z *wm:Connecting to SAVED AP: Quarto 402
+2026-10-21T00:31:54.048Z *wm:AutoConnect: SUCCESS
+2026-10-21T00:31:54.048Z *wm:STA IP Address: 192.168.10.45
+2026-10-21T00:31:54.048Z [WiFi] conectado, IP 192.168.10.45
+2026-10-21T00:31:54.059Z [DNS] 1.1.1.1 (principal) + 192.168.10.1 (reserva)
+2026-10-21T00:31:54.059Z [NTP] sincronização iniciada
+2026-10-21T00:31:54.063Z [CFG] api=https://apitcc.bernardoburigo.com.br sensorId=a3e7cb03-0acb-42a6-8adc-a5038a4e674d pulsos/litro=450.00
+2026-10-21T00:31:55.072Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=--
+2026-10-21T00:31:56.072Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=--
+2026-10-21T00:31:57.071Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=--
+2026-10-21T00:31:58.072Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:31:59.073Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:31:59.074Z [FILA] seq=0 enfileirada (pulsos=0)
+2026-10-21T00:32:00.486Z [POST] seq=0 -> 201 (fila=0)
+2026-10-21T00:32:00.488Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:32:01.486Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:32:02.486Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:32:03.485Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:32:04.488Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:32:04.488Z [FILA] seq=1 enfileirada (pulsos=0)
+2026-10-21T00:32:05.758Z [POST] seq=1 -> 201 (fila=0)
+2026-10-21T00:32:05.759Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:32:06.757Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:32:07.758Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:32:08.757Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:32:09.758Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:32:09.759Z [FILA] seq=2 enfileirada (pulsos=0)
+2026-10-21T00:32:11.535Z [POST] seq=2 -> 201 (fila=0)
+2026-10-21T00:32:11.537Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:32:12.536Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:32:13.534Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:32:14.535Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:32:15.535Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:32:15.537Z [FILA] seq=3 enfileirada (pulsos=0)
+2026-10-21T00:32:16.861Z [POST] seq=3 -> 201 (fila=0)
+2026-10-21T00:32:16.863Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:32:17.861Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:32:18.860Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:32:19.861Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:32:20.861Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:32:20.861Z [FILA] seq=4 enfileirada (pulsos=0)
+2026-10-21T00:32:22.177Z [POST] seq=4 -> 201 (fila=0)
+2026-10-21T00:32:22.180Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:32:23.176Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:32:24.177Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:32:25.176Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:32:26.177Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:32:26.178Z [FILA] seq=5 enfileirada (pulsos=0)
+2026-10-21T00:32:27.912Z [POST] seq=5 -> 201 (fila=0)
+2026-10-21T00:32:27.914Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:32:28.910Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:32:29.911Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:32:30.910Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:32:31.911Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:32:31.913Z [FILA] seq=6 enfileirada (pulsos=0)
+2026-10-21T00:32:33.232Z [POST] seq=6 -> 201 (fila=0)
+2026-10-21T00:32:33.233Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:32:34.232Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:32:35.231Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:32:36.232Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:32:37.233Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:32:37.233Z [FILA] seq=7 enfileirada (pulsos=0)
+2026-10-21T00:32:38.554Z [POST] seq=7 -> 201 (fila=0)
+2026-10-21T00:32:38.555Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:32:39.553Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:32:40.553Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:32:41.552Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:32:42.554Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:32:42.555Z [FILA] seq=8 enfileirada (pulsos=0)
+2026-10-21T00:32:43.790Z [POST] seq=8 -> 201 (fila=0)
+2026-10-21T00:32:43.791Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:32:44.789Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:32:45.789Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:32:46.789Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:32:47.790Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:32:47.791Z [FILA] seq=9 enfileirada (pulsos=0)
+2026-10-21T00:32:49.091Z [POST] seq=9 -> 201 (fila=0)
+2026-10-21T00:32:49.092Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:32:50.090Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:32:51.089Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:32:52.090Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:32:53.091Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:32:53.092Z [FILA] seq=10 enfileirada (pulsos=0)
+2026-10-21T00:32:54.414Z [POST] seq=10 -> 201 (fila=0)
+2026-10-21T00:32:54.415Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:32:55.412Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:32:56.412Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:32:57.413Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:32:58.414Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:32:58.415Z [FILA] seq=11 enfileirada (pulsos=0)
+2026-10-21T00:32:59.639Z [POST] seq=11 -> 201 (fila=0)
+2026-10-21T00:32:59.641Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:33:00.638Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:33:01.639Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:33:02.639Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:33:03.639Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:33:03.640Z [FILA] seq=12 enfileirada (pulsos=0)
+2026-10-21T00:33:04.953Z [POST] seq=12 -> 201 (fila=0)
+2026-10-21T00:33:04.955Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:33:05.953Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:33:06.952Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:33:07.953Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:33:08.954Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:33:08.955Z [FILA] seq=13 enfileirada (pulsos=0)
+2026-10-21T00:33:10.683Z [POST] seq=13 -> 201 (fila=0)
+2026-10-21T00:33:10.684Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:33:11.683Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:33:12.683Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:33:13.684Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:33:14.683Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:33:14.685Z [FILA] seq=14 enfileirada (pulsos=0)
+2026-10-21T00:33:15.907Z [POST] seq=14 -> 201 (fila=0)
+2026-10-21T00:33:15.909Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:33:16.907Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:33:17.906Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:33:18.907Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:33:19.907Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:33:19.908Z [FILA] seq=15 enfileirada (pulsos=0)
+2026-10-21T00:33:21.235Z [POST] seq=15 -> 201 (fila=0)
+2026-10-21T00:33:21.237Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:33:22.235Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:33:23.234Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:33:24.234Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:33:25.235Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:33:25.236Z [FILA] seq=16 enfileirada (pulsos=0)
+2026-10-21T00:33:26.890Z [POST] seq=16 -> 201 (fila=0)
+2026-10-21T00:33:26.891Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:33:27.890Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:33:28.888Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:33:29.888Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:33:30.889Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:33:30.891Z [FILA] seq=17 enfileirada (pulsos=0)
+2026-10-21T00:33:32.184Z [POST] seq=17 -> 201 (fila=0)
+2026-10-21T00:33:32.186Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:33:33.184Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:33:34.183Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:33:35.184Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:33:36.184Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:33:36.185Z [FILA] seq=18 enfileirada (pulsos=0)
+2026-10-21T00:33:37.504Z [POST] seq=18 -> 201 (fila=0)
+2026-10-21T00:33:37.506Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:33:38.503Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:33:39.503Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:33:40.503Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:33:41.503Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:33:41.505Z [FILA] seq=19 enfileirada (pulsos=0)
+2026-10-21T00:33:43.148Z [POST] seq=19 -> 201 (fila=0)
+2026-10-21T00:33:43.150Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:33:44.149Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:33:45.148Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:33:46.148Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:33:47.149Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:33:47.150Z [FILA] seq=20 enfileirada (pulsos=0)
+2026-10-21T00:33:48.546Z [POST] seq=20 -> 201 (fila=0)
+2026-10-21T00:33:48.547Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:33:49.547Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:33:50.547Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:33:51.546Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:33:52.547Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:33:52.548Z [FILA] seq=21 enfileirada (pulsos=0)
+2026-10-21T00:33:53.874Z [POST] seq=21 -> 201 (fila=0)
+2026-10-21T00:33:53.876Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:33:54.874Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:33:55.873Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:33:56.874Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:33:57.875Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:33:57.876Z [FILA] seq=22 enfileirada (pulsos=0)
+2026-10-21T00:33:59.196Z [POST] seq=22 -> 201 (fila=0)
+2026-10-21T00:33:59.197Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:34:00.196Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:34:01.196Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:34:02.195Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:34:03.197Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:34:03.197Z [FILA] seq=23 enfileirada (pulsos=0)
+2026-10-21T00:34:04.617Z [POST] seq=23 -> 201 (fila=0)
+2026-10-21T00:34:04.618Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:34:05.618Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:34:06.618Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:34:07.616Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:34:08.618Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:34:08.619Z [FILA] seq=24 enfileirada (pulsos=0)
+2026-10-21T00:34:10.252Z [POST] seq=24 -> 201 (fila=0)
+2026-10-21T00:34:10.253Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:34:11.250Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:34:12.251Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:34:13.251Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:34:14.251Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:34:14.253Z [FILA] seq=25 enfileirada (pulsos=0)
+2026-10-21T00:34:15.568Z [POST] seq=25 -> 201 (fila=0)
+2026-10-21T00:34:15.569Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:34:16.567Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:34:17.567Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:34:18.568Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:34:19.568Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:34:19.569Z [FILA] seq=26 enfileirada (pulsos=0)
+2026-10-21T00:34:20.892Z [POST] seq=26 -> 201 (fila=0)
+2026-10-21T00:34:20.893Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:34:21.891Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:34:22.891Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:34:23.891Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:34:24.892Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:34:24.893Z [FILA] seq=27 enfileirada (pulsos=0)
+2026-10-21T00:34:26.619Z [POST] seq=27 -> 201 (fila=0)
+2026-10-21T00:34:26.621Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:34:27.619Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:34:28.620Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:34:29.620Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:34:30.621Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:34:30.621Z [FILA] seq=28 enfileirada (pulsos=0)
+2026-10-21T00:34:31.942Z [POST] seq=28 -> 201 (fila=0)
+2026-10-21T00:34:31.944Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:34:32.943Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:34:33.941Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:34:34.942Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:34:35.943Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:34:35.944Z [FILA] seq=29 enfileirada (pulsos=0)
+2026-10-21T00:34:37.259Z [POST] seq=29 -> 201 (fila=0)
+2026-10-21T00:34:37.260Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:34:38.260Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:34:39.260Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:34:40.259Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:34:41.260Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:34:41.261Z [FILA] seq=30 enfileirada (pulsos=0)
+2026-10-21T00:34:42.991Z [POST] seq=30 -> 201 (fila=0)
+2026-10-21T00:34:42.993Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:34:43.991Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:34:44.991Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:34:45.990Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:34:46.991Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:34:46.992Z [FILA] seq=31 enfileirada (pulsos=0)
+2026-10-21T00:34:48.222Z [POST] seq=31 -> 201 (fila=0)
+2026-10-21T00:34:48.224Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:34:49.221Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:34:50.221Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:34:51.221Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:34:52.222Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:34:52.223Z [FILA] seq=32 enfileirada (pulsos=0)
+2026-10-21T00:34:53.529Z [POST] seq=32 -> 201 (fila=0)
+2026-10-21T00:34:53.531Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:34:54.530Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:34:55.529Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:34:56.529Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:34:57.530Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:34:57.533Z [FILA] seq=33 enfileirada (pulsos=0)
+2026-10-21T00:35:01.926Z [POST] seq=33 -> 201 (fila=0)
+2026-10-21T00:35:01.927Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:35:02.925Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:35:02.927Z [FILA] seq=34 enfileirada (pulsos=0)
+2026-10-21T00:35:04.172Z [POST] seq=34 -> 201 (fila=0)
+2026-10-21T00:35:04.173Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:35:05.171Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:35:06.171Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:35:07.171Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:35:08.173Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:35:08.174Z [FILA] seq=35 enfileirada (pulsos=0)
+2026-10-21T00:35:09.399Z [POST] seq=35 -> 201 (fila=0)
+2026-10-21T00:35:09.401Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:35:10.399Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:35:11.399Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:35:12.398Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:35:13.398Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:35:13.400Z [FILA] seq=36 enfileirada (pulsos=0)
+2026-10-21T00:35:14.711Z [POST] seq=36 -> 201 (fila=0)
+2026-10-21T00:35:14.713Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:35:15.711Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:35:16.711Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:35:17.711Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:35:18.712Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:35:18.713Z [FILA] seq=37 enfileirada (pulsos=0)
+2026-10-21T00:35:20.035Z [POST] seq=37 -> 201 (fila=0)
+2026-10-21T00:35:20.036Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:35:21.034Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:35:22.035Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:35:23.035Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:35:24.036Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:35:24.037Z [FILA] seq=38 enfileirada (pulsos=0)
+2026-10-21T00:35:25.766Z [POST] seq=38 -> 201 (fila=0)
+2026-10-21T00:35:25.769Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:35:26.766Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:35:27.766Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:35:28.766Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:35:29.767Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:35:29.767Z [FILA] seq=39 enfileirada (pulsos=0)
+2026-10-21T00:35:31.092Z [POST] seq=39 -> 201 (fila=0)
+2026-10-21T00:35:31.093Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:35:32.091Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:35:33.091Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:35:34.091Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:35:35.092Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:35:35.093Z [FILA] seq=40 enfileirada (pulsos=0)
+2026-10-21T00:35:36.324Z [POST] seq=40 -> 201 (fila=0)
+2026-10-21T00:35:36.326Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:35:37.324Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:35:38.323Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:35:39.323Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:35:40.324Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:35:40.326Z [FILA] seq=41 enfileirada (pulsos=0)
+2026-10-21T00:35:42.041Z [POST] seq=41 -> 201 (fila=0)
+2026-10-21T00:35:42.043Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:35:43.041Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:35:44.040Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:35:45.040Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:35:46.041Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:35:46.042Z [FILA] seq=42 enfileirada (pulsos=0)
+2026-10-21T00:35:47.290Z [POST] seq=42 -> 201 (fila=0)
+2026-10-21T00:35:47.292Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:35:48.290Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:35:49.290Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:35:50.289Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:35:51.289Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:35:51.291Z [FILA] seq=43 enfileirada (pulsos=0)
+2026-10-21T00:35:52.512Z [POST] seq=43 -> 201 (fila=0)
+2026-10-21T00:35:52.514Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:35:53.512Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:35:54.512Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:35:55.511Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:35:56.513Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:35:56.514Z [FILA] seq=44 enfileirada (pulsos=0)
+2026-10-21T00:35:58.039Z [POST] seq=44 -> 201 (fila=0)
+2026-10-21T00:35:58.040Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:35:59.038Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:36:00.039Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:36:01.037Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:36:02.039Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:36:02.040Z [FILA] seq=45 enfileirada (pulsos=0)
+2026-10-21T00:36:03.328Z [POST] seq=45 -> 201 (fila=0)
+2026-10-21T00:36:03.330Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:36:04.327Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:36:05.327Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:36:06.327Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:36:07.328Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:36:07.329Z [FILA] seq=46 enfileirada (pulsos=0)
+2026-10-21T00:36:08.643Z [POST] seq=46 -> 201 (fila=0)
+2026-10-21T00:36:08.645Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:36:09.641Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:36:10.642Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:36:11.643Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:36:12.643Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:36:12.644Z [FILA] seq=47 enfileirada (pulsos=0)
+2026-10-21T00:36:13.860Z [POST] seq=47 -> 201 (fila=0)
+2026-10-21T00:36:13.861Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:36:14.861Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:36:15.860Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:36:16.860Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:36:17.861Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:36:17.862Z [FILA] seq=48 enfileirada (pulsos=0)
+2026-10-21T00:36:19.188Z [POST] seq=48 -> 201 (fila=0)
+2026-10-21T00:36:19.189Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:36:20.188Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:36:21.188Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:36:22.187Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:36:23.187Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:36:23.189Z [FILA] seq=49 enfileirada (pulsos=0)
+2026-10-21T00:36:24.515Z [POST] seq=49 -> 201 (fila=0)
+2026-10-21T00:36:24.516Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:36:25.514Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:36:26.515Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:36:27.514Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:36:28.515Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:36:28.516Z [FILA] seq=50 enfileirada (pulsos=0)
+2026-10-21T00:36:29.839Z [POST] seq=50 -> 201 (fila=0)
+2026-10-21T00:36:29.840Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:36:30.838Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:36:31.838Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:36:32.839Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:36:33.838Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:36:33.840Z [FILA] seq=51 enfileirada (pulsos=0)
+2026-10-21T00:36:35.150Z [POST] seq=51 -> 201 (fila=0)
+2026-10-21T00:36:35.152Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:36:36.150Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:36:37.150Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:36:38.150Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:36:39.151Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:36:39.152Z [FILA] seq=52 enfileirada (pulsos=0)
+2026-10-21T00:36:40.878Z [POST] seq=52 -> 201 (fila=0)
+2026-10-21T00:36:40.881Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:36:41.878Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:36:42.878Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:36:43.877Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:36:44.877Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:36:44.879Z [FILA] seq=53 enfileirada (pulsos=0)
+2026-10-21T00:36:46.110Z [POST] seq=53 -> 201 (fila=0)
+2026-10-21T00:36:46.111Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:36:47.109Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:36:48.109Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:36:49.108Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:36:50.110Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:36:50.111Z [FILA] seq=54 enfileirada (pulsos=0)
+2026-10-21T00:36:51.422Z [POST] seq=54 -> 201 (fila=0)
+2026-10-21T00:36:51.424Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:36:52.421Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:36:53.421Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:36:54.421Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:36:55.422Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:36:55.423Z [FILA] seq=55 enfileirada (pulsos=0)
+2026-10-21T00:36:57.152Z [POST] seq=55 -> 201 (fila=0)
+2026-10-21T00:36:57.153Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:36:58.151Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:36:59.152Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:37:00.151Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:37:01.152Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:37:01.153Z [FILA] seq=56 enfileirada (pulsos=0)
+2026-10-21T00:37:02.470Z [POST] seq=56 -> 201 (fila=0)
+2026-10-21T00:37:02.471Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:37:03.469Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:37:04.469Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:37:05.470Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:37:06.471Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:37:06.472Z [FILA] seq=57 enfileirada (pulsos=0)
+2026-10-21T00:37:07.800Z [POST] seq=57 -> 201 (fila=0)
+2026-10-21T00:37:07.803Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:37:08.801Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:37:09.800Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:37:10.800Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:37:11.801Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:37:11.802Z [FILA] seq=58 enfileirada (pulsos=0)
+2026-10-21T00:37:13.117Z [POST] seq=58 -> 201 (fila=0)
+2026-10-21T00:37:13.118Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:37:14.117Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:37:15.117Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:37:16.117Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:37:17.119Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:37:17.120Z [FILA] seq=59 enfileirada (pulsos=0)
+2026-10-21T00:37:18.453Z [POST] seq=59 -> 201 (fila=0)
+2026-10-21T00:37:18.455Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:37:19.454Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:37:20.453Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:37:21.453Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:37:22.454Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:37:22.454Z [FILA] seq=60 enfileirada (pulsos=0)
+2026-10-21T00:37:23.761Z [POST] seq=60 -> 201 (fila=0)
+2026-10-21T00:37:23.763Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:37:24.761Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:37:25.761Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:37:26.761Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:37:27.761Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:37:27.762Z [FILA] seq=61 enfileirada (pulsos=0)
+2026-10-21T00:37:29.031Z [POST] seq=61 -> 201 (fila=0)
+2026-10-21T00:37:29.032Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:37:30.031Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:37:31.030Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:37:32.030Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:37:33.031Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:37:33.033Z [FILA] seq=62 enfileirada (pulsos=0)
+2026-10-21T00:37:34.297Z [POST] seq=62 -> 201 (fila=0)
+2026-10-21T00:37:34.298Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:37:35.296Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:37:36.296Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:37:37.296Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:37:38.297Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:37:38.298Z [FILA] seq=63 enfileirada (pulsos=0)
+2026-10-21T00:37:39.532Z [POST] seq=63 -> 201 (fila=0)
+2026-10-21T00:37:39.533Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:37:40.531Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:37:41.531Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:37:42.531Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:37:43.532Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:37:43.533Z [FILA] seq=64 enfileirada (pulsos=0)
+2026-10-21T00:37:44.836Z [POST] seq=64 -> 201 (fila=0)
+2026-10-21T00:37:44.837Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:37:45.834Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:37:46.834Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:37:47.834Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:37:48.835Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:37:48.837Z [FILA] seq=65 enfileirada (pulsos=0)
+2026-10-21T00:37:50.161Z [POST] seq=65 -> 201 (fila=0)
+2026-10-21T00:37:50.163Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:37:51.161Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:37:52.162Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:37:53.162Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:37:54.163Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:37:54.163Z [FILA] seq=66 enfileirada (pulsos=0)
+2026-10-21T00:37:55.792Z [POST] seq=66 -> 201 (fila=0)
+2026-10-21T00:37:55.793Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:37:56.792Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:37:57.791Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:37:58.791Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:37:59.793Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:37:59.794Z [FILA] seq=67 enfileirada (pulsos=0)
+2026-10-21T00:38:01.113Z [POST] seq=67 -> 201 (fila=0)
+2026-10-21T00:38:01.114Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:38:02.111Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:38:03.112Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:38:04.112Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:38:05.112Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:38:05.113Z [FILA] seq=68 enfileirada (pulsos=0)
+2026-10-21T00:38:06.434Z [POST] seq=68 -> 201 (fila=0)
+2026-10-21T00:38:06.435Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:38:07.433Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:38:08.434Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:38:09.434Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:38:10.435Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:38:10.436Z [FILA] seq=69 enfileirada (pulsos=0)
+2026-10-21T00:38:12.067Z [POST] seq=69 -> 201 (fila=0)
+2026-10-21T00:38:12.068Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:38:13.067Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:38:14.067Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:38:15.067Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:38:16.068Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:38:16.069Z [FILA] seq=70 enfileirada (pulsos=0)
+2026-10-21T00:38:17.385Z [POST] seq=70 -> 201 (fila=0)
+2026-10-21T00:38:17.387Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:38:18.384Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:38:19.385Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:38:20.384Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:38:21.385Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:38:21.386Z [FILA] seq=71 enfileirada (pulsos=0)
+2026-10-21T00:38:22.708Z [POST] seq=71 -> 201 (fila=0)
+2026-10-21T00:38:22.710Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:38:23.708Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:38:24.707Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:38:25.708Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:38:26.709Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:38:26.710Z [FILA] seq=72 enfileirada (pulsos=0)
+2026-10-21T00:38:28.436Z [POST] seq=72 -> 201 (fila=0)
+2026-10-21T00:38:28.438Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:38:29.436Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:38:30.436Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:38:31.436Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:38:32.437Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:38:32.438Z [FILA] seq=73 enfileirada (pulsos=0)
+2026-10-21T00:38:33.761Z [POST] seq=73 -> 201 (fila=0)
+2026-10-21T00:38:33.763Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:38:34.762Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:38:35.761Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:38:36.761Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:38:37.762Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:38:37.763Z [FILA] seq=74 enfileirada (pulsos=0)
+2026-10-21T00:38:39.389Z [POST] seq=74 -> 201 (fila=0)
+2026-10-21T00:38:39.392Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:38:40.390Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:38:41.389Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:38:42.388Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:38:43.389Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:38:43.390Z [FILA] seq=75 enfileirada (pulsos=0)
+2026-10-21T00:38:44.613Z [POST] seq=75 -> 201 (fila=0)
+2026-10-21T00:38:44.616Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:38:45.612Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:38:46.613Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:38:47.613Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:38:48.614Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:38:48.614Z [FILA] seq=76 enfileirada (pulsos=0)
+2026-10-21T00:38:49.928Z [POST] seq=76 -> 201 (fila=0)
+2026-10-21T00:38:49.929Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:38:50.928Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:38:51.928Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:38:52.927Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:38:53.928Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:38:53.929Z [FILA] seq=77 enfileirada (pulsos=0)
+2026-10-21T00:38:55.554Z [POST] seq=77 -> 201 (fila=0)
+2026-10-21T00:38:55.555Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:38:56.555Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:38:57.554Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:38:58.554Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:38:59.556Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:38:59.556Z [FILA] seq=78 enfileirada (pulsos=0)
+2026-10-21T00:39:00.873Z [POST] seq=78 -> 201 (fila=0)
+2026-10-21T00:39:00.876Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:39:01.873Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:39:02.873Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:39:03.873Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:39:04.874Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:39:04.875Z [FILA] seq=79 enfileirada (pulsos=0)
+2026-10-21T00:39:06.202Z [POST] seq=79 -> 201 (fila=0)
+2026-10-21T00:39:06.203Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:39:07.201Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:39:08.200Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:39:09.201Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:39:10.201Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:39:10.203Z [FILA] seq=80 enfileirada (pulsos=0)
+2026-10-21T00:39:11.480Z [POST] seq=80 -> 201 (fila=0)
+2026-10-21T00:39:11.482Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:39:12.480Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:39:13.479Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:39:14.478Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:39:15.478Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:39:15.480Z [FILA] seq=81 enfileirada (pulsos=0)
+2026-10-21T00:39:16.840Z [POST] seq=81 -> 201 (fila=0)
+2026-10-21T00:39:16.843Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:39:17.838Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:39:18.839Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:39:19.841Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:39:20.842Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:39:20.843Z [FILA] seq=82 enfileirada (pulsos=0)
+2026-10-21T00:39:22.086Z [POST] seq=82 -> 201 (fila=0)
+2026-10-21T00:39:22.087Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:39:23.084Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:39:24.084Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:39:25.084Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:39:26.084Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:39:26.086Z [FILA] seq=83 enfileirada (pulsos=0)
+2026-10-21T00:39:27.726Z [POST] seq=83 -> 201 (fila=0)
+2026-10-21T00:39:27.728Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:39:28.726Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:39:29.726Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:39:30.726Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:39:31.727Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:39:31.728Z [FILA] seq=84 enfileirada (pulsos=0)
+2026-10-21T00:39:32.952Z [POST] seq=84 -> 201 (fila=0)
+2026-10-21T00:39:32.953Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:39:33.951Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:39:34.952Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:39:35.952Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:39:36.953Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:39:36.954Z [FILA] seq=85 enfileirada (pulsos=0)
+2026-10-21T00:39:38.236Z [POST] seq=85 -> 201 (fila=0)
+2026-10-21T00:39:38.239Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:39:39.235Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:39:40.236Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:39:41.236Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:39:42.237Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:39:42.238Z [FILA] seq=86 enfileirada (pulsos=0)
+2026-10-21T00:39:43.647Z [POST] seq=86 -> 201 (fila=0)
+2026-10-21T00:39:43.649Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:39:44.647Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:39:45.647Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:39:46.647Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:39:47.648Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:39:47.649Z [FILA] seq=87 enfileirada (pulsos=0)
+2026-10-21T00:39:48.974Z [POST] seq=87 -> 201 (fila=0)
+2026-10-21T00:39:48.975Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:39:49.973Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:39:50.973Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:39:51.972Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:39:52.973Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:39:52.974Z [FILA] seq=88 enfileirada (pulsos=0)
+2026-10-21T00:39:54.294Z [POST] seq=88 -> 201 (fila=0)
+2026-10-21T00:39:54.297Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:39:55.294Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:39:56.293Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:39:57.292Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:39:58.294Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:39:58.294Z [FILA] seq=89 enfileirada (pulsos=0)
+2026-10-21T00:39:59.610Z [POST] seq=89 -> 201 (fila=0)
+2026-10-21T00:39:59.611Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:40:00.611Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:40:01.610Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:40:02.610Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:40:03.611Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:40:03.612Z [FILA] seq=90 enfileirada (pulsos=0)
+2026-10-21T00:40:04.938Z [POST] seq=90 -> 201 (fila=0)
+2026-10-21T00:40:04.939Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:40:05.936Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:40:06.936Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:40:07.935Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:40:08.937Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:40:08.938Z [FILA] seq=91 enfileirada (pulsos=0)
+2026-10-21T00:40:10.559Z [POST] seq=91 -> 201 (fila=0)
+2026-10-21T00:40:10.561Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:40:11.560Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:40:12.560Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:40:13.559Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:40:14.562Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:40:14.562Z [FILA] seq=92 enfileirada (pulsos=0)
+2026-10-21T00:40:15.796Z [POST] seq=92 -> 201 (fila=0)
+2026-10-21T00:40:15.799Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:40:16.796Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:40:17.795Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:40:18.795Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:40:19.796Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:40:19.797Z [FILA] seq=93 enfileirada (pulsos=0)
+2026-10-21T00:40:21.106Z [POST] seq=93 -> 201 (fila=0)
+2026-10-21T00:40:21.108Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:40:22.106Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:40:23.106Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:40:24.106Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:40:25.106Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:40:25.108Z [FILA] seq=94 enfileirada (pulsos=0)
+2026-10-21T00:40:26.835Z [POST] seq=94 -> 201 (fila=0)
+2026-10-21T00:40:26.836Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:40:27.834Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:40:28.835Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:40:29.834Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:40:30.834Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:40:30.836Z [FILA] seq=95 enfileirada (pulsos=0)
+2026-10-21T00:40:32.165Z [POST] seq=95 -> 201 (fila=0)
+2026-10-21T00:40:32.167Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:40:33.165Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:40:34.166Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:40:35.165Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:40:36.167Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:40:36.168Z [FILA] seq=96 enfileirada (pulsos=0)
+2026-10-21T00:40:37.398Z [POST] seq=96 -> 201 (fila=0)
+2026-10-21T00:40:37.399Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:40:38.397Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:40:39.398Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:40:40.397Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:40:41.399Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:40:41.400Z [FILA] seq=97 enfileirada (pulsos=0)
+2026-10-21T00:40:42.999Z [POST] seq=97 -> 201 (fila=0)
+2026-10-21T00:40:43.000Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:40:43.998Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:40:44.998Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:40:45.999Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:40:47.001Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:40:47.002Z [FILA] seq=98 enfileirada (pulsos=0)
+2026-10-21T00:40:48.249Z [POST] seq=98 -> 201 (fila=0)
+2026-10-21T00:40:48.250Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:40:49.247Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:40:50.247Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:40:51.247Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:40:52.248Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:40:52.249Z [FILA] seq=99 enfileirada (pulsos=0)
+2026-10-21T00:40:53.487Z [POST] seq=99 -> 201 (fila=0)
+2026-10-21T00:40:53.490Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:40:54.488Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:40:55.486Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:40:56.488Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:40:57.489Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:40:57.489Z [FILA] seq=100 enfileirada (pulsos=0)
+2026-10-21T00:40:59.176Z [POST] seq=100 -> 201 (fila=0)
+2026-10-21T00:40:59.177Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:41:00.175Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:41:01.175Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:41:02.174Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:41:03.176Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:41:03.177Z [FILA] seq=101 enfileirada (pulsos=0)
+2026-10-21T00:41:04.407Z [POST] seq=101 -> 201 (fila=0)
+2026-10-21T00:41:04.409Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:41:05.407Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:41:06.406Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:41:07.406Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:41:08.407Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:41:08.408Z [FILA] seq=102 enfileirada (pulsos=0)
+2026-10-21T00:41:09.712Z [POST] seq=102 -> 201 (fila=0)
+2026-10-21T00:41:09.713Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:41:10.711Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:41:11.712Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:41:12.712Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:41:13.713Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:41:13.714Z [FILA] seq=103 enfileirada (pulsos=0)
+2026-10-21T00:41:15.044Z [POST] seq=103 -> 201 (fila=0)
+2026-10-21T00:41:15.046Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:41:16.043Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:41:17.043Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:41:18.042Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:41:19.044Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:41:19.045Z [FILA] seq=104 enfileirada (pulsos=0)
+2026-10-21T00:41:20.354Z [POST] seq=104 -> 201 (fila=0)
+2026-10-21T00:41:20.356Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:41:21.353Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:41:22.354Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:41:23.353Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:41:24.354Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:41:24.356Z [FILA] seq=105 enfileirada (pulsos=0)
+2026-10-21T00:41:25.995Z [POST] seq=105 -> 201 (fila=0)
+2026-10-21T00:41:25.997Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:41:26.994Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:41:27.994Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:41:28.995Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:41:29.996Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:41:29.996Z [FILA] seq=106 enfileirada (pulsos=0)
+2026-10-21T00:41:31.242Z [POST] seq=106 -> 201 (fila=0)
+2026-10-21T00:41:31.244Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:41:32.241Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:41:33.241Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:41:34.241Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:41:35.242Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:41:35.243Z [FILA] seq=107 enfileirada (pulsos=0)
+2026-10-21T00:41:36.524Z [POST] seq=107 -> 201 (fila=0)
+2026-10-21T00:41:36.526Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:41:37.524Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:41:38.523Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:41:39.523Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:41:40.524Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:41:40.526Z [FILA] seq=108 enfileirada (pulsos=0)
+2026-10-21T00:41:42.249Z [POST] seq=108 -> 201 (fila=0)
+2026-10-21T00:41:42.251Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:41:43.249Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:41:44.249Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:41:45.249Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:41:46.249Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:41:46.251Z [FILA] seq=109 enfileirada (pulsos=0)
+2026-10-21T00:41:47.575Z [POST] seq=109 -> 201 (fila=0)
+2026-10-21T00:41:47.576Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:41:48.576Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:41:49.575Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:41:50.575Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:41:51.575Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:41:51.577Z [FILA] seq=110 enfileirada (pulsos=0)
+2026-10-21T00:41:52.799Z [POST] seq=110 -> 201 (fila=0)
+2026-10-21T00:41:52.801Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:41:53.800Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:41:54.798Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:41:55.798Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:41:56.799Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:41:56.801Z [FILA] seq=111 enfileirada (pulsos=0)
+2026-10-21T00:41:58.524Z [POST] seq=111 -> 201 (fila=0)
+2026-10-21T00:41:58.527Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:41:59.525Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:42:00.524Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:42:01.524Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:42:02.524Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:42:02.526Z [FILA] seq=112 enfileirada (pulsos=0)
+2026-10-21T00:42:03.846Z [POST] seq=112 -> 201 (fila=0)
+2026-10-21T00:42:03.848Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:42:04.845Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:42:05.845Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:42:06.844Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:42:07.846Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:42:07.847Z [FILA] seq=113 enfileirada (pulsos=0)
+2026-10-21T00:42:09.171Z [POST] seq=113 -> 201 (fila=0)
+2026-10-21T00:42:09.171Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:42:10.172Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:42:11.171Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:42:12.171Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:42:13.171Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:42:13.172Z [FILA] seq=114 enfileirada (pulsos=0)
+2026-10-21T00:42:14.488Z [POST] seq=114 -> 201 (fila=0)
+2026-10-21T00:42:14.489Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:42:15.488Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:42:16.488Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:42:17.488Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:42:18.487Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:42:18.489Z [FILA] seq=115 enfileirada (pulsos=0)
+2026-10-21T00:42:19.707Z [POST] seq=115 -> 201 (fila=0)
+2026-10-21T00:42:19.708Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:42:20.705Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:42:21.705Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:42:22.704Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:42:23.706Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:42:23.707Z [FILA] seq=116 enfileirada (pulsos=0)
+2026-10-21T00:42:24.955Z [POST] seq=116 -> 201 (fila=0)
+2026-10-21T00:42:24.958Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:42:25.956Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:42:26.955Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:42:27.955Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:42:28.955Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:42:28.956Z [FILA] seq=117 enfileirada (pulsos=0)
+2026-10-21T00:42:30.215Z [POST] seq=117 -> 201 (fila=0)
+2026-10-21T00:42:30.218Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:42:31.215Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:42:32.214Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:42:33.214Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:42:34.215Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:42:34.216Z [FILA] seq=118 enfileirada (pulsos=0)
+2026-10-21T00:42:35.452Z [POST] seq=118 -> 201 (fila=0)
+2026-10-21T00:42:35.454Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:42:36.452Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:42:37.453Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:42:38.452Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:42:39.453Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:42:39.454Z [FILA] seq=119 enfileirada (pulsos=0)
+2026-10-21T00:42:40.693Z [POST] seq=119 -> 201 (fila=0)
+2026-10-21T00:42:40.694Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:42:41.694Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:42:42.694Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:42:43.693Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:42:44.695Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:42:44.696Z [FILA] seq=120 enfileirada (pulsos=0)
+2026-10-21T00:42:46.005Z [POST] seq=120 -> 201 (fila=0)
+2026-10-21T00:42:46.007Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:42:47.005Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:42:48.004Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:42:49.004Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:42:50.006Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:42:50.007Z [FILA] seq=121 enfileirada (pulsos=0)
+2026-10-21T00:42:51.338Z [POST] seq=121 -> 201 (fila=0)
+2026-10-21T00:42:51.339Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:42:52.337Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:42:53.337Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:42:54.337Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:42:55.339Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:42:55.339Z [FILA] seq=122 enfileirada (pulsos=0)
+2026-10-21T00:42:57.061Z [POST] seq=122 -> 201 (fila=0)
+2026-10-21T00:42:57.063Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:42:58.060Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:42:59.062Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:43:00.061Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:43:01.061Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:43:01.062Z [FILA] seq=123 enfileirada (pulsos=0)
+2026-10-21T00:43:02.382Z [POST] seq=123 -> 201 (fila=0)
+2026-10-21T00:43:02.383Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:43:03.381Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:43:04.381Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:43:05.381Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:43:06.381Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:43:06.383Z [FILA] seq=124 enfileirada (pulsos=0)
+2026-10-21T00:43:07.704Z [POST] seq=124 -> 201 (fila=0)
+2026-10-21T00:43:07.705Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:43:08.703Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:43:09.703Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:43:10.704Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:43:11.704Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:43:11.706Z [FILA] seq=125 enfileirada (pulsos=0)
+2026-10-21T00:43:13.430Z [POST] seq=125 -> 201 (fila=0)
+2026-10-21T00:43:13.432Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:43:14.430Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:43:15.431Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:43:16.431Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:43:17.431Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:43:17.432Z [FILA] seq=126 enfileirada (pulsos=0)
+2026-10-21T00:43:18.858Z [POST] seq=126 -> 201 (fila=0)
+2026-10-21T00:43:18.861Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:43:19.858Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:43:20.857Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:43:21.857Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:43:22.857Z pulsos=0 pulsos_total=0 vazao=0.00 L/min volume_intervalo=0.00 mL volume_total=0.00 mL | fila=0 wifi=ok hora=ok
+2026-10-21T00:43:22.859Z [FILA] seq=127 enfileirada (pulsos=0)

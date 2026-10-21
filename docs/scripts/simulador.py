@@ -21,6 +21,12 @@ Uso típico:
     python3 docs/scripts/simulador.py rodar
     python3 docs/scripts/simulador.py rodar --perfil 103=vazamento
 
+Registro do teste de alerta (§3.1): `--log` grava cada linha com data/hora UTC e os
+eventos do apto em vazamento (T0, limite de 30 min, e — com `--vigiar-alertas` — quando
+o alerta aparece na API):
+    python3 docs/scripts/simulador.py rodar --perfil 103=vazamento \
+        --log docs/resultados/simulador-alerta.log --vigiar-alertas
+
 Sensores virtuais no MESMO condomínio de um síndico que já existe (ex.: o do sensor
 real em produção, para o painel mostrar o apartamento real ao lado dos virtuais):
     python3 docs/scripts/simulador.py --estado docs/scripts/.simulador-estado-prod.json \
@@ -328,6 +334,33 @@ def cmd_historico(args):
     print("histórico concluído")
 
 
+class Registro:
+    """Saída do `rodar`: terminal + (opcional) arquivo com data/hora UTC completa em cada linha."""
+
+    def __init__(self, caminho):
+        self.arquivo = None
+        if caminho:
+            Path(caminho).parent.mkdir(parents=True, exist_ok=True)
+            self.arquivo = open(caminho, "a", encoding="utf-8")
+
+    def __call__(self, mensagem):
+        print(mensagem)
+        if self.arquivo:
+            agora = datetime.now(timezone.utc).isoformat(timespec="milliseconds").replace("+00:00", "Z")
+            self.arquivo.write(f"{agora} {mensagem}\n")
+            self.arquivo.flush()
+
+    def fechar(self):
+        if self.arquivo:
+            self.arquivo.close()
+
+
+def alertas_do_apartamento(api, token, apartamento_id):
+    status, corpo = http("GET", f"{api}/api/apartamentos/{apartamento_id}/alertas",
+                         headers={"Authorization": f"Bearer {token}"})
+    return status, corpo
+
+
 def cmd_rodar(args):
     caminho = Path(args.estado)
     estado = carregar_estado(caminho)
@@ -335,6 +368,21 @@ def cmd_rodar(args):
     perfis = parse_perfis(args.perfil)
     usos = montar_usos(estado, perfis, args.semente)
     intervalo = args.intervalo
+    registrar = Registro(args.log)
+    limite = timedelta(minutes=args.limite_alerta)
+
+    # Vazamento simulado (Seção 3.1 do artigo): o perfil `vazamento` tem fluxo em TODAS as janelas,
+    # então o fluxo contínuo começa na 1ª leitura desta execução (T0) e o backend sinaliza o alerta
+    # quando a última leitura estiver a `limite` de T0. Restarts com menos de 15 s de intervalo
+    # emendam o fluxo da execução anterior no backend (lacuna máxima) — e o T0 daqui fica tardio.
+    vazando = {s["sensorId"]: {"t0": None, "limite_em": None, "visto": False}
+               for s in estado["sensores"] if perfis.get(s["numero"]) == "vazamento"}
+    token = None
+    if args.vigiar_alertas and vazando:
+        sindico = estado.get("sindico", {})
+        senha = sindico.get("senha") or os.environ.get("TCC_SINDICO_SENHA") \
+            or getpass.getpass(f"senha de {sindico.get('email')}: ")
+        token = login(api, {"email": sindico["email"], "senha": senha})
 
     parar = {"sim": False}
     signal.signal(signal.SIGINT, lambda *_: parar.update(sim=True))
@@ -342,8 +390,8 @@ def cmd_rodar(args):
 
     resumo_perfis = ", ".join(
         "{}={}".format(s["numero"], perfis.get(s["numero"], "normal")) for s in estado["sensores"])
-    print(f"enviando leituras SIMULADAS a cada {intervalo} s para {len(estado['sensores'])} sensor(es) "
-          f"[{resumo_perfis}] (Ctrl+C para parar)")
+    registrar(f"enviando leituras SIMULADAS a cada {intervalo} s para {len(estado['sensores'])} sensor(es) "
+              f"[{resumo_perfis}] em {api} (Ctrl+C para parar)")
 
     proximo = time.time()
     ultimo_salvamento = time.time()
@@ -364,15 +412,48 @@ def cmd_rodar(args):
             except ErroSimulador as erro:
                 status = f"ERRO ({erro})"
             perfil = perfis.get(sensor["numero"], "normal")
-            print(f"[{instante.astimezone(FUSO):%H:%M:%S}] apto {sensor['numero']:>4} {perfil:<9} "
-                  f"pulsos={pulsos:<4} vol={volume:8.2f} mL seq={sensor['sequencia'] - 1:<6} -> {status}")
+            registrar(f"[{instante.astimezone(FUSO):%H:%M:%S}] apto {sensor['numero']:>4} {perfil:<9} "
+                      f"pulsos={pulsos:<4} vol={volume:8.2f} mL seq={sensor['sequencia'] - 1:<6} -> {status} "
+                      f"(timestampLeitura={iso_utc(instante)})")
+
+            vaz = vazando.get(sensor["sensorId"])
+            if vaz is None or status not in (201, 409):
+                continue
+            if vaz["t0"] is None:
+                vaz["t0"], vaz["limite_em"] = instante, instante + limite
+                registrar(f"[EVENTO] apto {sensor['numero']}: fluxo contínuo desde T0={iso_utc(instante)}; "
+                          f"limite de {args.limite_alerta} min em {iso_utc(vaz['limite_em'])} "
+                          f"({vaz['limite_em'].astimezone(FUSO):%H:%M:%S} em Criciúma)")
+            elif instante >= vaz["limite_em"] and not vaz.get("limite_logado"):
+                vaz["limite_logado"] = True
+                registrar(f"[EVENTO] apto {sensor['numero']}: limite atingido — leitura de {iso_utc(instante)} "
+                          f"completa {args.limite_alerta} min de fluxo contínuo")
+
+        # Depois do limite, pergunta à API até o alerta aparecer (a exibição no app vem no polling seguinte).
+        if token:
+            for sensor in estado["sensores"]:
+                vaz = vazando.get(sensor["sensorId"])
+                if not vaz or vaz["visto"] or not vaz.get("limite_logado"):
+                    continue
+                status, corpo = alertas_do_apartamento(api, token, sensor["apartamentoId"])
+                if status == 401:  # JWT expirou (24 h): renova e tenta na próxima volta
+                    sindico = estado["sindico"]
+                    token = login(api, {"email": sindico["email"],
+                                        "senha": sindico.get("senha") or os.environ.get("TCC_SINDICO_SENHA")})
+                    continue
+                if status == 200 and any(a["sensorId"] == sensor["sensorId"] for a in corpo):
+                    vaz["visto"] = True
+                    atraso = (datetime.now(timezone.utc) - vaz["limite_em"]).total_seconds()
+                    registrar(f"[EVENTO] apto {sensor['numero']}: alerta VAZAMENTO_PROVAVEL visível na API "
+                              f"{atraso:.1f} s após o limite")
 
         if time.time() - ultimo_salvamento > 60:
             salvar_estado(caminho, estado)
             ultimo_salvamento = time.time()
 
     salvar_estado(caminho, estado)
-    print("\nparado; estado salvo")
+    registrar("parado; estado salvo")
+    registrar.fechar()
 
 
 def main():
@@ -403,6 +484,14 @@ def main():
             p.add_argument("--janela", type=int, default=60, help="janela em segundos (padrão 60; firmware real: 5)")
         else:
             p.add_argument("--intervalo", type=int, default=JANELA_PADRAO_S, help="segundos entre leituras")
+            p.add_argument("--log", default=None,
+                           help="também grava a saída neste arquivo, com data/hora UTC em cada linha")
+            p.add_argument("--limite-alerta", type=int, default=30,
+                           help="minutos de fluxo contínuo do backend (app.alerta.fluxoContinuoMinutos), "
+                                "só para registrar o limite dos aptos em vazamento; padrão 30")
+            p.add_argument("--vigiar-alertas", action="store_true",
+                           help="após o limite, consulta /alertas dos aptos em vazamento e registra quando o "
+                                "alerta aparece (login do síndico; senha via TCC_SINDICO_SENHA ou terminal)")
         p.set_defaults(func=func)
 
     args = parser.parse_args()
