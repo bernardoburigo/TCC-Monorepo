@@ -82,6 +82,33 @@ Para remover: apague a pasta `src/api/mock/` e reverta esse trecho de
 
 CORS não se aplica ao celular (é restrição só de navegador).
 
+### APK nativo (EAS Build)
+
+O perfil `apk` do `eas.json` fixa as variáveis do build — o EAS **não** lê o
+`.env.local` (ignorado pelo git, não vai para o servidor de build):
+
+| Variável | Valor no APK |
+|---|---|
+| `EXPO_PUBLIC_API_URL` | `https://apitcc.bernardoburigo.com.br` |
+| `EXPO_PUBLIC_USE_MOCK_DATA` | `false` |
+| `EXPO_PUBLIC_REGISTRAR_LATENCIA` | `false` |
+
+Sem isso, o build sairia com o padrão do código (`http://localhost:8080`, que
+no celular não é o servidor). As `EXPO_PUBLIC_*` são embutidas no JavaScript
+no build: no bundle de produção o mock vira a constante `false`.
+
+```bash
+npx eas-cli init                                  # 1ª vez: vincula o projeto à conta Expo
+npx eas-cli build -p android --profile apk        # ou pelo expo.dev (diretório base: app/)
+```
+
+Conferência no aparelho: entrar com a conta **real** do síndico. O modo mock
+só aceita as contas `*.mock@tcc.com` — se a conta real entrar e o apto 201
+aparecer com o selo REAL, o APK está na API de produção.
+
+`android.package` (`br.unesc.tcc.telemetria`, no `app.json`) é a identidade
+do app no Android: trocar depois do primeiro build gera outro aplicativo.
+
 ### Medir a latência de exibição (Sprint 6)
 
 O artigo (Seção 2.6.3, Equação 5) decompõe a latência em `t_cap` (ESP32/NTP,

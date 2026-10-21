@@ -34,3 +34,24 @@ sem o T0 do vazamento. Para o "X s após o limite" do §3.1 ficar documentado:
 atingido às 10:54:19.654Z e alerta visível na API **0,1 s** depois. Backend
 local devolvido aos 30 min. Ressalva: reiniciar o `rodar` com menos de 15 s de
 intervalo emenda o fluxo anterior no backend e deixa o T0 registrado tardio.
+
+## 3. App: "rodou com dados mock" e o build do APK
+
+`npm run web` sem `.env` na `app/` parecia usar dados mock. Investigado: não
+há `.env*` na pasta, nem `EXPO_PUBLIC_*` no shell ou nos scripts do
+`package.json`; reproduzindo o `expo start` nas mesmas condições, o env
+virtual do Expo só define `EXPO_PUBLIC_PROJECT_ROOT` — o mock fica
+**desligado** e a API cai no padrão `http://localhost:8080`, o **backend local
+do Docker**, cujos dados vêm do simulador. Daí a impressão de "mock". (O mock
+de verdade só aceita as contas `*.mock@tcc.com`.)
+
+O risco real estava no APK: o EAS Build não recebe o `.env.local` (ignorado
+pelo git), então o build sairia apontando para `localhost:8080`. Criado
+`app/eas.json` com o perfil `apk` (`buildType: apk`, distribuição interna) que
+fixa `EXPO_PUBLIC_API_URL=https://apitcc.bernardoburigo.com.br`,
+`EXPO_PUBLIC_USE_MOCK_DATA=false` e `EXPO_PUBLIC_REGISTRAR_LATENCIA=false`, e
+`android.package = br.unesc.tcc.telemetria` no `app.json` (exigido pelo
+build). **Verificação:** `expo export --platform android --no-bytecode` com
+essas variáveis — o bundle de produção contém a URL pública, não contém
+`localhost:8080`, e o `MOCK_ATIVO` foi compilado como constante `false`.
+Passo a passo em `app/README.md`, "APK nativo (EAS Build)".
