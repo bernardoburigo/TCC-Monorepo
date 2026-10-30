@@ -26,7 +26,8 @@ from pathlib import Path
 
 
 def requisitar(metodo, url, corpo=None, token=None):
-    cabecalhos = {"Content-Type": "application/json"}
+    # User-Agent próprio: o Cloudflare barra o padrão "Python-urllib/x.y" com 403 (error code 1010)
+    cabecalhos = {"Content-Type": "application/json", "User-Agent": "tcc-analise/1.0"}
     if token:
         cabecalhos["Authorization"] = f"Bearer {token}"
     dados = json.dumps(corpo).encode() if corpo is not None else None

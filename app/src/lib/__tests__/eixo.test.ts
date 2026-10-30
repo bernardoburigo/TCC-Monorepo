@@ -1,4 +1,4 @@
-import { formatarEixo, passoRedondo } from '../eixo';
+import { casasDoPasso, formatarEixo, passoRedondo } from '../eixo';
 
 describe('passoRedondo', () => {
   it('sem valor positivo usa 1 (o eixo não colapsa)', () => {
@@ -19,6 +19,16 @@ describe('passoRedondo', () => {
     expect(passoRedondo(10)).toBe(10);
     expect(passoRedondo(5)).toBe(5);
     expect(passoRedondo(0.2)).toBeCloseTo(0.2, 10);
+  });
+});
+
+describe('casasDoPasso', () => {
+  it('casas decimais suficientes para o passo não ser cortado', () => {
+    expect(casasDoPasso(0.5)).toBe(1);
+    expect(casasDoPasso(0.2)).toBe(1);
+    expect(casasDoPasso(passoRedondo(0.04))).toBe(2);
+    expect(casasDoPasso(1)).toBe(0);
+    expect(casasDoPasso(50)).toBe(0);
   });
 });
 

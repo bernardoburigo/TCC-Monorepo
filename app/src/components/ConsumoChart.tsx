@@ -3,7 +3,7 @@ import { Text, View } from 'react-native';
 import { BarChart } from 'react-native-gifted-charts';
 
 import type { ConsumoApartamento } from '@/api/types';
-import { formatarEixo, passoRedondo } from '@/lib/eixo';
+import { casasDoPasso, formatarEixo, passoRedondo } from '@/lib/eixo';
 import { formatarVolume, rotuloCompletoDoPonto, rotuloDoPonto } from '@/lib/format';
 import { preencherSerie, rotuloVisivel } from '@/lib/serie';
 
@@ -65,6 +65,8 @@ export function ConsumoChart({ consumo }: { consumo: ConsumoApartamento }) {
             maxValue={eixoY}
             noOfSections={4}
             stepValue={passo}
+            showFractionalValues
+            roundToDigits={casasDoPasso(passo)}
             yAxisLabelWidth={LARGURA_EIXO_Y}
             formatYLabel={(rotulo: string) => formatarEixo(Number(rotulo))}
             yAxisLabelSuffix=" L"

@@ -11,8 +11,14 @@ t_cap = timestamp_leitura (fim da janela de 5 s, relógio do ESP32/NTP), t_pers 
 Saída: média, mediana, P95, máximo e desvio padrão (amostral) de cada etapa, em segundos.
 Valores negativos indicam relógios dessincronizados e são reportados (não descartados).
 
+Aba/tela em segundo plano pausa o polling; ao voltar, todas as leituras do intervalo aparecem no
+mesmo instante, com L_exib de minutos que não é latência do sistema. `--descartar-lotes N` tira as
+leituras exibidas num mesmo segundo com mais de N leituras (em operação normal chega 1 por polling)
+e informa quantas saíram.
+
 Uso:
     python3 docs/scripts/analise/latencia.py latencia-*.csv --saida resultados/tabela7_latencia.csv
+    python3 docs/scripts/analise/latencia.py latencia-*.csv --descartar-lotes 3
 """
 
 import argparse
@@ -27,6 +33,8 @@ def main():
     parser.add_argument("arquivos", nargs="+", help="CSV(s) exportados pelo app (vários são concatenados)")
     parser.add_argument("--sensor", help="filtra um sensor_id")
     parser.add_argument("--saida", help="CSV da Tabela 7")
+    parser.add_argument("--descartar-lotes", type=int, metavar="N",
+                        help="descarta leituras exibidas num mesmo segundo com mais de N (retomada do polling)")
     args = parser.parse_args()
 
     df = pd.concat([pd.read_csv(a) for a in args.arquivos], ignore_index=True)
@@ -36,6 +44,16 @@ def main():
     df = df.drop_duplicates(subset=["sensor_id", "sequencia", "timestamp_leitura"], keep="first")
     if df.empty:
         sys.exit("nenhuma leitura")
+
+    if args.descartar_lotes is not None:
+        segundo = pd.to_datetime(df["exibido_em"], utc=True, format="ISO8601").dt.floor("s")
+        tamanho = segundo.map(segundo.value_counts())
+        lote = tamanho > args.descartar_lotes
+        for instante, n in segundo[lote].value_counts().sort_index().items():
+            print(f"descartado: lote de {n} leituras exibidas em {instante.isoformat()}")
+        df = df[~lote]
+        if df.empty:
+            sys.exit("nenhuma leitura fora dos lotes")
 
     t_cap = pd.to_datetime(df["timestamp_leitura"], utc=True, format="ISO8601")
     t_pers = pd.to_datetime(df["recebido_em"], utc=True, format="ISO8601")

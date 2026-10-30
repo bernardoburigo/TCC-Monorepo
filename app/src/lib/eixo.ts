@@ -14,6 +14,13 @@ export function passoRedondo(valor: number): number {
   return 10 * potencia;
 }
 
+// Casas decimais que o passo exige (0,5 -> 1; 0,05 -> 2; 10 -> 0). Vai no `roundToDigits` do
+// gifted-charts junto com `showFractionalValues`: sem isso, com dados acima de 1 ele corta o rótulo
+// no ponto ANTES do `formatYLabel` (0,5 virava "0" e 1,5 virava "1").
+export function casasDoPasso(passo: number): number {
+  return passo > 0 && passo < 1 ? Math.ceil(-Math.log10(passo) - 1e-9) : 0;
+}
+
 // Rótulo do eixo Y em pt-BR: 1 casa abaixo de 10, inteiro a partir daí.
 export function formatarEixo(valor: number): string {
   return new Intl.NumberFormat('pt-BR', { maximumFractionDigits: valor < 10 ? 1 : 0 }).format(valor);

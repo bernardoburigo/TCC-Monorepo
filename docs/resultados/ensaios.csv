@@ -1,0 +1,6 @@
+# Uma linha por ensaio de bancada. pulsos_* = `pulsos_total` do Serial antes/depois do ensaio.
+# campanha: calibracao | validacao   faixa: baixa | media | alta   (linhas com # são ignoradas)
+campanha,faixa,repeticao,pulsos_antes,pulsos_depois,volume_real_l,tempo_s,observacao
+exploratorio,baixa,1,0,316,0.508,33,copo -> funil boca fina -> PVC -> sensor -> PVC -> recipiente pesado (611-103 g)
+exploratorio,baixa,2,316,634,0.508,25,mesmo metodo do 1 (canos ja molhados)
+exploratorio,baixa,3,634,870,0.507,38,direto do copo no cano (sem funil) - despejo lento p/ nao derramar; ~1 mL derramado fora

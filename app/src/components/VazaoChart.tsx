@@ -3,7 +3,7 @@ import { useMemo, useState } from 'react';
 import { Text, View } from 'react-native';
 import { LineChart } from 'react-native-gifted-charts';
 
-import { formatarEixo, passoRedondo } from '@/lib/eixo';
+import { casasDoPasso, formatarEixo, passoRedondo } from '@/lib/eixo';
 import type { PontoVazao } from '@/lib/vazao';
 
 const LARGURA_EIXO_Y = 52;
@@ -39,6 +39,8 @@ export function VazaoChart({ pontos }: { pontos: PontoVazao[] }) {
             maxValue={passo * 4}
             noOfSections={4}
             stepValue={passo}
+            showFractionalValues
+            roundToDigits={casasDoPasso(passo)}
             yAxisLabelWidth={LARGURA_EIXO_Y}
             formatYLabel={(rotulo: string) => formatarEixo(Number(rotulo))}
             yAxisLabelSuffix=" L/min"
