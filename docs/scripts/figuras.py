@@ -19,15 +19,14 @@ from PIL import Image, ImageDraw, ImageFont, ImageOps
 
 PASTA = Path(__file__).resolve().parent.parent / "figuras"
 
-FIGURA2 = ["condominio-coord.jpg", "apto-coord.jpg", "condominio-prop.jpg"]
+FIGURA2 = ["condominio-sindico.jpg", "apto-201-24h.jpg", "condominio-proprietario.jpg"]  # 06/11
 # (arquivo, recorte (esq, topo, dir, base) em fração da foto já rotacionada)
 FIGURA3 = [
-    ("20261024_100409.jpg", (0.04, 0.12, 1.00, 0.86)),
-    ("20261028_175937.jpg", (0.10, 0.18, 0.90, 0.86)),
+    ("foto-bancada.jpg", (0.00, 0.24, 0.96, 0.98)),  # 06/11: notebook, ESP32, sensor, funil, balança
 ]
 
 LARGURA_TELA = 720
-ALTURA_FOTO = 900
+ALTURA_FOTO = 1400
 ESPACO = 48
 MARGEM_LETRA = 90
 BORDA = (203, 213, 225)
@@ -69,12 +68,15 @@ def com_borda(imagem, espessura=2):
 def lado_a_lado(paineis, caminho):
     letra = fonte(44)
     largura = sum(p.width for p in paineis) + ESPACO * (len(paineis) - 1)
-    altura = max(p.height for p in paineis) + MARGEM_LETRA
+    letras = len(paineis) > 1  # painel único não leva "(a)"
+    altura = max(p.height for p in paineis) + (MARGEM_LETRA if letras else 0)
     figura = Image.new("RGB", (largura, altura), BRANCO)
     desenho = ImageDraw.Draw(figura)
     x = 0
     for i, painel in enumerate(paineis):
         figura.paste(painel, (x, 0))
+        if not letras:
+            break
         texto = f"({chr(ord('a') + i)})"
         caixa = desenho.textbbox((0, 0), texto, font=letra)
         desenho.text((x + (painel.width - (caixa[2] - caixa[0])) / 2, altura - MARGEM_LETRA + 18),

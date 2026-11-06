@@ -1,0 +1,5 @@
+faixa,n,vazao_media_l_min,pulsos_medios,freq_media_hz,vol_lido_medio_l,erro_medio_pct
+baixa,5,1.1329,196.4000,7.4997,0.4364,-11.7626
+media,5,1.1803,183.6000,7.3440,0.4080,-17.0372
+alta,5,2.0897,191.0000,13.6429,0.4244,-12.9438
+geral,15,1.4676,190.3333,9.4955,0.4230,-13.9146

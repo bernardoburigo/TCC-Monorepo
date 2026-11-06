@@ -1,0 +1,4 @@
+faixa,n,vol_referencia_l,media_lida_l,desvio_padrao_l,cv_pct
+baixa,10,0.4821,0.5121,0.0363,7.0812
+media,10,0.4762,0.4848,0.0499,10.2910
+alta,10,0.4701,0.5057,0.0664,13.1239

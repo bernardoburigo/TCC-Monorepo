@@ -1,2 +1,3 @@
 condicao,esperadas,recebidas,duplicadas_rejeitadas,taxa_entrega_pct,perdidas,entregues_pela_fila,atraso_max_s
 Rede estável,676,676,1,100.0,0,11,32.1
+Falhas induzidas (3 quedas),2282,2282,0,100.0,0,257,497.9

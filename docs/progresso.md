@@ -5,24 +5,23 @@ do [`CLAUDE.md`](../CLAUDE.md) (fonte da verdade para datas e critérios) e
 os diários detalhados em `docs/stack-DD-MM.md`. Atualizar ao fechar cada
 sprint ou pendência relevante.
 
-**Última atualização:** 28/10/2026.
-**Prazo de entrega do artigo:** 09/11/2026 (faltam ~20 dias). **Maior
-risco agora é tempo, não hardware:** o ESP32 chegou e o pipeline ponta a
-ponta já funciona (15/10) — falta calibração formal, queda de rede,
-multi-apartamento e os 120 ensaios de bancada da Sprint 6.
+**Última atualização:** 06/11/2026.
+**Prazo de entrega do artigo:** 09/11/2026. **Testes de bancada concluídos
+em 06/11** (45 ensaios, quedas de rede, alerta) — falta passar os números para o
+Overleaf (rascunhos em `docs/texto-artigo-06-11.md`) e fechar as Figuras 2 e 3.
 
 ## Resumo rápido
 
 | Sprint | Status |
 |---|---|
 | 0 — Setup | ✅ concluída |
-| 1 — Firmware isolado | 🟡 upload feito (15/10), pulsos confirmados; falta calibração quantitativa |
+| 1 — Firmware isolado | ✅ calibrado em 06/11 (K = 387,4 pulsos/L) |
 | 2 — Backend + banco | ✅ concluída |
-| 3 — Integração ESP32 → API | 🟡 ponta a ponta funcionando (15/10); falta calibração e teste de queda de rede |
+| 3 — Integração ESP32 → API | ✅ quedas de rede testadas em 06/11 (TE = 100%) |
 | 4 — Dashboard/App | 🟡 dados reais chegando no backend (15/10); falta conferir no app/gráfico |
 | 5 — Multi-apartamento | ⬜ não iniciada |
-| 6 — Testes de bancada | ⬜ não iniciada (delineamento já definido no artigo) |
-| 7 — Fechamento do artigo | ⬜ não iniciada |
+| 6 — Testes de bancada | ✅ concluída em 06/11 (5 + 10 por faixa; ver `stack-06-11.md`) |
+| 7 — Fechamento do artigo | 🟡 em andamento |
 
 ## Por sprint
 
@@ -94,7 +93,7 @@ multi-apartamento e os 120 ensaios de bancada da Sprint 6.
 - [ ] Rodar esse cenário em produção (Etapa 1 do roteiro abaixo)
 - [ ] Dashboard mostrando 2+ apartamentos com consumos distintos e isolados
 
-### Sprint 6 — Testes de bancada ⬜
+### Sprint 6 — Testes de bancada ✅
 Delineamento já fechado no artigo final (`docs/TCC_Bernardo_Goulart_Búrigo.pdf`,
 Seção 2.6): 3 faixas de vazão (baixa/média/alta) × (10 repetições de
 calibração + 30 de validação) = **120 ensaios**.
@@ -109,30 +108,29 @@ calibração + 30 de validação) = **120 ensaios**.
       sensor vertical dá fator dependente do jeito de despejar (+38% com funil,
       +3% direto) — método descartado para calibração; referência por massa
       (balança, 1 g) aprovada
-- [ ] Montar a bancada com mangueira na saída acima do sensor (sensor afogado),
-      faixas por tampas furadas na garrafa-funil
+- [x] ~~Bancada com mangueira~~ — sem tempo; bancada por gravidade (sensor
+      vertical, funil, massa) adotada como oficial em 06/11, declarada como
+      limitação (K específico da condição hidráulica)
 - [x] Rede estável (28/10, 62 min): TE = 100% (676/676), 11 pela fila, atraso
       máx. 32 s — `docs/resultados/tabela6_entrega.csv`
 - [x] Latência (28/10): L_tot média 4,5 s, P95 7,9 s (344 leituras, ~32 min de
       tela visível; lote da retomada do polling descartado) — repetir com a tela
       sempre visível se quiser 60 min
-- [ ] Quedas de rede (3 × 120 s) em log próprio
-- [ ] Campanha de calibração (10 repetições/faixa) — calcular o fator `K`
-      ajustado (Equação 2 do artigo)
-- [ ] Campanha de validação (30 repetições/faixa) com o `K` calibrado
-- [ ] Calcular EA, EPM, desvio padrão/CV, taxa de entrega (rede estável +
-      falhas induzidas), latência (ingestão + exibição) — rodar os scripts de
-      `docs/scripts/analise/`
-- [ ] Gerar as Tabelas 3–8 e a Figura 4 do artigo com os números reais
+- [x] Quedas de rede (06/11, 3 × 120 s durante a validação): TE = 100%
+      (2282/2282), 257 pela fila, atraso máx. 498 s
+- [x] Calibração (06/11, 5/faixa, delineamento reduzido): K = 387,4 pulsos/L
+      (−13,9% do teórico), gravado às 11:49
+- [x] Validação (06/11, 10/faixa): EPM 11,10% → 9,91%; CV 7,1–13,1%
+- [x] Alerta (06/11): visível na API 38 ms após o limite de 30 min
+- [x] Tabelas 3–7 e Figura 4 geradas em `docs/resultados/`
 
-### Sprint 7 — Fechamento do artigo ⬜
+### Sprint 7 — Fechamento do artigo 🟡
 - [ ] Preencher todos os placeholders em vermelho do PDF com os dados reais
 - [ ] Resolver as pendências da validação de paridade (seção abaixo)
 - [x] Figura 1 (arquitetura, 20/10)
-- [ ] Figura 2 (`docs/scripts/figuras.py`, 28/10): (a) e (c) prontas; refazer o
-      (b) depois da calibração com o app corrigido; legenda: as três são do celular
-- [ ] Figura 3: provisória (protótipo + balança); falta a foto da bancada com
-      mangueira e reescrever o §2.6.1 para o método por despejo/massa
+- [x] Figura 2 (06/11, capturas do celular com dados do dia e alerta do 103)
+- [x] Figura 3 (06/11, foto da bancada) — legendas em `docs/texto-artigo-06-11.md`
+- [x] Figura 4 (06/11, `docs/resultados/figura4_erro_por_faixa.png`)
 - [ ] Revisão final do texto
 - [ ] Entrega do artigo até 09/11/2026
 - [x] Deploy no servidor caseiro (16/10): stack em `127.0.0.1`, `.env` de produção,

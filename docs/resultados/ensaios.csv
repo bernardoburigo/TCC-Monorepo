@@ -1,6 +1,54 @@
 # Uma linha por ensaio de bancada. pulsos_* = `pulsos_total` do Serial antes/depois do ensaio.
 # campanha: calibracao | validacao   faixa: baixa | media | alta   (linhas com # são ignoradas)
 campanha,faixa,repeticao,pulsos_antes,pulsos_depois,volume_real_l,tempo_s,observacao
-exploratorio,baixa,1,0,316,0.508,33,copo -> funil boca fina -> PVC -> sensor -> PVC -> recipiente pesado (611-103 g)
-exploratorio,baixa,2,316,634,0.508,25,mesmo metodo do 1 (canos ja molhados)
+exploratorio,media,1,0,316,0.508,33,28/10 FUNIL ANTIGO (outro passador; quase transbordando) - copo -> funil boca fina -> PVC -> sensor -> PVC -> recipiente pesado (611-103 g)
+exploratorio,media,2,316,634,0.508,25,28/10 FUNIL ANTIGO - mesmo metodo do 1 (canos ja molhados)
 exploratorio,baixa,3,634,870,0.507,38,direto do copo no cano (sem funil) - despejo lento p/ nao derramar; ~1 mL derramado fora
+calibracao,baixa,1,0,190,0.496,27,funil quase vazio; tempo pelo Serial (13:36:53-13:37:20 UTC); sem cronometro; padrao 500 g despejados -> 496 g coletados
+calibracao,baixa,2,190,407,0.496,26,funil quase vazio
+calibracao,baixa,3,407,599,0.494,26,funil quase vazio
+calibracao,baixa,4,599,785,0.494,26,funil quase vazio
+calibracao,baixa,5,785,982,0.493,26,funil quase vazio
+calibracao,media,1,982,1165,0.493,25,funil novo (mais alto) mais cheio que na baixa
+calibracao,media,2,1165,1350,0.493,25,funil novo mais cheio; inclui 1 pulso de pingo tardio
+calibracao,media,3,1351,1529,0.492,25,funil novo mais cheio
+calibracao,media,4,1529,1712,0.491,25,funil novo mais cheio
+calibracao,media,5,1712,1901,0.490,25,funil novo mais cheio
+calibracao,alta,1,1901,2088,0.490,14,500 mL de uma vez; sem cronometro - tempo pelo Serial (14:23:29-14:23:43 UTC)
+calibracao,alta,2,2088,2272,0.489,14,500 mL de uma vez
+calibracao,alta,3,2272,2458,0.488,14,500 mL de uma vez
+# calibracao,alta,4,2458,2709,0.486,14,REFEITO: despejo com mais forca que o padrao (desvio de procedimento relatado pelo operador) - 516 pulsos/L
+calibracao,alta,4,2709,2924,0.486,14,refazimento do alta 4 (copo perto da boca do funil)
+calibracao,alta,5,2924,3107,0.485,14,500 mL de uma vez; copo perto da boca do funil
+validacao,baixa,1,0,205,0.485,26,K=387.4 gravado 11:49
+validacao,baixa,2,205,409,0.485,26,
+validacao,baixa,3,409,608,0.484,26,
+validacao,baixa,4,608,824,0.482,26,
+validacao,baixa,5,824,1034,0.482,26,durante a queda de rede 1 (roteador desligado)
+validacao,baixa,6,1034,1226,0.482,26,
+validacao,baixa,7,1226,1432,0.481,26,
+validacao,baixa,8,1432,1634,0.480,26,
+validacao,baixa,9,1634,1814,0.480,26,
+validacao,baixa,10,1814,1984,0.480,26,inclui 1 pulso de pingo tardio
+validacao,media,1,1985,2177,0.479,21,tempo pelo Serial (16:55:35-16:55:56 UTC) - cronometro nao informado
+validacao,media,2,2177,2352,0.479,21,durante a queda de rede 2; inclui 1 pulso de pingo tardio
+validacao,media,3,2352,2527,0.478,21,depois do ensaio o operador movimentou o prototipo para escorrer (106 pulsos espurios 2527-2633; fora do ensaio)
+# validacao,media,4,2639,3010,0.477,21,REFEITO: montagem movimentada depois do media 3 sem nova escorva - 371 pulsos (+100%) - falha operacional
+validacao,media,4,3010,3192,0.477,21,refazimento do media 4; inclui 1 pulso de pingo tardio
+validacao,media,5,3192,3369,0.477,21,
+# validacao,media,6,3369,3820,0.477,21,REFEITO: rajada de 275 pulsos em ~2 s (14:26:38-41 local; ~31 L/min - nao fisico) antes do despejo; provavel interferencia eletrica/mau contato - despejo em si 3644-3820 = 176 pulsos
+validacao,media,6,3820,3986,0.477,21,refazimento do media 6
+validacao,media,7,3991,4208,0.476,21,funil ficou um pouco mais cheio que nas outras (relato do operador)
+validacao,media,8,4208,4378,0.473,21,
+validacao,media,9,4378,4585,0.473,21,
+validacao,media,10,4585,4802,0.473,21,
+validacao,alta,1,4802,4970,0.472,13,tempo pelo Serial (17:54:52-17:55:06 UTC) - cronometro nao informado
+validacao,alta,2,4974,5195,0.472,13,durante a queda de rede 3; 4 pulsos soltos 10 s antes do despejo (4970-4974) fora do ensaio
+validacao,alta,3,5195,5396,0.472,13,
+validacao,alta,4,5396,5630,0.471,13,
+validacao,alta,5,5630,5810,0.470,13,
+validacao,alta,6,5810,5969,0.470,13,
+validacao,alta,7,5969,6172,0.470,13,
+validacao,alta,8,6172,6399,0.470,13,
+validacao,alta,9,6399,6589,0.467,13,
+validacao,alta,10,6589,6765,0.467,13,

@@ -83,12 +83,16 @@ pio device monitor -b 115200
    (= `sensorId`) e o `token` — o token só é exibido nessa resposta.
 2. Na primeira execução (sem Wi-Fi salvo) o ESP32 abre a rede
    **`TCC-Sensor-Setup`**. Conecte pelo celular/PC; o portal abre sozinho
-   (ou `192.168.4.1`) e pede: rede Wi-Fi 2,4 GHz, URL da API
-   (`http://<IP-do-PC>:8080`), `sensorId`, token e pulsos/litro.
+   ou pelo navegador em **<http://192.168.4.1>** (só funciona conectado a essa
+   rede; desligue os dados móveis se o celular insistir em sair dela). Em
+   *Configure WiFi* ele pede: rede Wi-Fi 2,4 GHz e senha, URL da API
+   (`http://<IP-do-PC>:8080` local ou `https://apitcc.bernardoburigo.com.br`),
+   `sensorId`, token e pulsos/litro (decimal com **ponto**, ex.: `387.4`).
 3. Tudo é salvo na NVS: o ESP32 reconecta sozinho nos próximos boots.
 4. **Reconfigurar:** segure o botão **BOOT (GPIO0) por 3 s com o firmware
-   rodando** — apaga o Wi-Fi salvo e reinicia no portal (os demais campos vêm
-   pré-preenchidos). Não segure BOOT durante o reset: isso entra no modo de
+   rodando** — apaga o Wi-Fi salvo e reinicia no portal em
+   <http://192.168.4.1> (os demais campos vêm pré-preenchidos; a senha do
+   Wi-Fi precisa ser digitada de novo). Não segure BOOT durante o reset: isso entra no modo de
    download do ESP32.
 5. O portal expira em 180 s; depois disso o firmware segue offline (medindo e
    enfileirando) e tenta reconectar a cada 30 s.
